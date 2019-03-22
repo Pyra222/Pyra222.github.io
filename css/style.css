@@ -138,6 +138,9 @@ button:active {
 }
 
 @media only screen and (max-width: 600px) {
+    .reminder {
+        display: none;
+    }
     .container {
         top: 10px;
         transform: translate(-50%, 0%);
