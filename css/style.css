@@ -46,10 +46,10 @@ html, body {
 }
 
 .reminder {
-    border-bottom: 1px solid white;
-    position: relative;
+    position: absolute;
+    bottom: 10px;
     display: block;
-    width: 100%;
+    width: 99%;
 }
 
 .side {
@@ -70,7 +70,8 @@ td {
 
 .container {
     position: absolute;
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-direction: column;
     top: 50%;
@@ -134,4 +135,11 @@ button:hover {
 
 button:active {
     background: linear-gradient(to bottom, rgb(120, 120, 120), rgb(70, 70, 70));
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        top: 10px;
+        transform: translate(-50%, 0%);
+    }
 }
