@@ -1,0 +1,137 @@
+@font-face {
+    src: url(../fonts/elian.ttf);
+    font-family: elian;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: rgb(22, 22, 22);
+    color: white;
+}
+
+.text {
+    line-height: 30px;
+}
+
+.elian {
+    font-family: elian;
+    color: white;
+    text-shadow: 0px 0px 15px white;
+}
+
+.alpha {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.change:hover {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    color: red;
+    text-shadow: 0px 0px 15px red;
+    cursor: pointer;
+}
+
+.success {
+    color: limegreen;
+    text-shadow: 0px 0px 15px limegreen;
+}
+
+.fail {
+    color: red;
+    text-shadow: 0px 0px 15px red;
+}
+
+.reminder {
+    border-bottom: 1px solid white;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.side {
+    float: left;
+    position: relative;
+}
+
+table {
+    display: inline-block;
+}
+
+td {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.row {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+.control {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.word {
+    pointer-events: none;
+    user-select: none;
+    cursor: default;
+}
+
+input[type="text"] {
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.score {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    width: 80px;
+    color: white;
+    background: linear-gradient(to bottom, rgb(80, 80, 80), rgb(30, 30, 30));
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 1px lightgray inset;
+}
+
+#ok {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, rgb(100, 100, 100), rgb(50, 50, 50));
+}
+
+button:active {
+    background: linear-gradient(to bottom, rgb(120, 120, 120), rgb(70, 70, 70));
+}

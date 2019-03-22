@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Elian script</title>
+    <meta name="description" content="Elian script excercises">
+    <meta name="author" content="Dawid Skórewicz">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="reminder">
+        <div class="side">
+            <table>
+                <tr>
+                    <td class="elian text change">G</td>
+                    <td class="elian text change">H</td>
+                    <td class="elian text change">I</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">D</td>
+                    <td class="elian text change">E</td>
+                    <td class="elian text change">F</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">A</td>
+                    <td class="elian text change">B</td>
+                    <td class="elian text change">C</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="elian text change">P</td>
+                    <td class="elian text change">Q</td>
+                    <td class="elian text change">R</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">M</td>
+                    <td class="elian text change">N</td>
+                    <td class="elian text change">O</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">J</td>
+                    <td class="elian text change">K</td>
+                    <td class="elian text change">L</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="elian text change">Y</td>
+                    <td class="elian text change">Z</td>
+                    <td class="elian text change"> </td>
+                </tr>
+                <tr>
+                    <td class="elian text change">V</td>
+                    <td class="elian text change">W</td>
+                    <td class="elian text change">X</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">S</td>
+                    <td class="elian text change">T</td>
+                    <td class="elian text change">U</td>
+                </tr>
+            </table>
+        </div>
+        <div class="side">
+            <table>
+                <tr>
+                    <td class="elian text change">Ą</td>
+                    <td class="elian text change">Ć</td>
+                    <td class="elian text change">Ę</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">1</td>
+                    <td class="elian text change">2</td>
+                    <td class="elian text change">3</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="elian text change">Ł</td>
+                    <td class="elian text change">Ń</td>
+                    <td class="elian text change">Ó</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">4</td>
+                    <td class="elian text change">5</td>
+                    <td class="elian text change">6</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="elian text change">Ś</td>
+                    <td class="elian text change">Ź</td>
+                    <td class="elian text change">Ż</td>
+                </tr>
+                <tr>
+                    <td class="elian text change">7</td>
+                    <td class="elian text change">8</td>
+                    <td class="elian text change">9</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="elian text change">0</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row score alpha">
+            <span class="fail" id="scoreNeg">0</span>/<span id="scorePass">0</span>/<span class="success"
+                id="scorePos">0</span>
+        </div>
+        <div class="row word elian"></div>
+        <div class="row result elian"></div>
+        <div class="row answer">
+            <input type="text" id="answer" autofocus>
+        </div>
+        <div class="row control">
+            <button id="clear" class="alpha" onclick="clear()">✕</button>
+            <button id="ok" class="alpha" onclick="checkWord()">✓</button>
+            <button id="next" class="alpha" onclick="next()">➝</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
