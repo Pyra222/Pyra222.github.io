@@ -3,10 +3,11 @@ let scorePos = 0;
 let scoreNeg = 0;
 let scorePass = 0;
 let words;
+let random = false;
 
-function getWordsFromFile(){
-    return new Promise(function(resolve, reject){
-        words = dict.split(/\r?\n/).map(e=>e.split(/\/|\s/)[0]);
+function getWordsFromFile() {
+    return new Promise(function (resolve, reject) {
+        words = dict.split(/\r?\n/).map(e => e.split(/\/|\s/)[0]);
         resolve();
     });
 }
@@ -15,9 +16,22 @@ function getWord() {
     clear();
     $(".word").text("...");
     $('.result').html("");
-    word = words[Math.floor(Math.random() * words.length)];
+    if (random) {
+        word = getRandomWord();
+    } else {
+        word = words[random_int(0, words.length)];
+    }
     $(".word").text(word);
     $('#answer').focus();
+}
+
+function getRandomWord() {
+    let length = random_int(3, 21);
+    let random_word = "";
+    for (var i = 0; i < length; i++) {
+        random_word += letters[random_int(0, letters.length)];
+    }
+    return random_word;
 }
 
 function success() {

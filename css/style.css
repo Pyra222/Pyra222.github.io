@@ -114,7 +114,7 @@ td {
 .control {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .word {
@@ -140,7 +140,7 @@ input[type="text"] {
 }
 
 button {
-    width: 80px;
+    width: 83px;
     color: white;
     background: linear-gradient(to bottom, rgb(80, 80, 80), rgb(30, 30, 30));
     border: none;
@@ -162,6 +162,15 @@ button:active {
     background: linear-gradient(to bottom, rgb(120, 120, 120), rgb(70, 70, 70));
 }
 
+.random{
+    height: 20px;
+    line-height: 20px;
+    user-select: none;
+    cursor: pointer;
+}
+
+#random_label{
+}
 @media only screen and (max-width: 600px) {
     .reminder{
         height: 50%;
