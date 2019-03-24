@@ -4,14 +4,10 @@ let scoreNeg = 0;
 let scorePass = 0;
 let words;
 
-function getWordsFromJson(){
+function getWordsFromFile(){
     return new Promise(function(resolve, reject){
-        $.getJSON("data/words.json",function(json){
-            words = json;
-            resolve();
-        }, function(error){
-            reject();
-        });
+        words = dict.split(/\r?\n/).map(e=>e.split('/')[0]);
+        resolve();
     });
 }
 
@@ -19,13 +15,13 @@ function getWord() {
     clear();
     $(".word").text("...");
     $('.result').html("");
-    word = words.data[Math.floor(Math.random() * words.data.length)].word;
+    word = words[Math.floor(Math.random() * words.length)];
     $(".word").text(word);
     $('#answer').focus();
 }
 
 function success() {
-    $('.result').html('<div class="success">POPRAWNIE!</div>');
+    $('.result').html('<div class="success">Dobrze!</div>');
     $('.word').toggleClass('elian');
     $('.word').toggleClass('alpha');
     setTimeout(function () {
@@ -38,7 +34,7 @@ function success() {
 }
 
 function fail() {
-    $('.result').html('<div class="fail">NIEPOPRAWNIE</div>');
+    $('.result').html('<div class="fail">Błąd</div>');
     $('.word').toggleClass('elian');
     $('.word').toggleClass('alpha');
     setTimeout(function () {
@@ -80,7 +76,7 @@ function checkWord() {
 }
 
 function init() {
-    getWordsFromJson().then(getWord);
+    getWordsFromFile().then(getWord);
 }
 
 init();

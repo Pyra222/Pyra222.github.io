@@ -48,7 +48,7 @@ html, body {
 
 .reminder {
     position: absolute;
-    top: 40px;
+    top: 45px;
     display: block;
     width: 100%;
     padding-top: 10px;
@@ -69,8 +69,8 @@ html, body {
     text-align: center;
     cursor: pointer;
     user-select: none;
-    height: 40px;
-    line-height: 40px;
+    height: 45px;
+    line-height: 45px;
     z-index: 20;
     background: rgb(22, 22, 22);
     border-bottom: 1px solid rgb(61,61,61);
