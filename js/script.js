@@ -6,7 +6,7 @@ let words;
 
 function getWordsFromFile(){
     return new Promise(function(resolve, reject){
-        words = dict.split(/\r?\n/).map(e=>e.split('/')[0]);
+        words = dict.split(/\r?\n/).map(e=>e.split(/\/|\s/)[0]);
         resolve();
     });
 }
