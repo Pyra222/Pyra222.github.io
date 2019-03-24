@@ -62,6 +62,8 @@ function updateScore(type) {
         case 'neg': scoreNeg++; $('#scoreNeg').html(scoreNeg); break;
         case 'pass': scorePass++; $('#scorePass').html(scorePass); break;
     }
+    let count = scorePos + scoreNeg + scorePass;
+    $('#count').html(count);
 }
 
 function clear() {
@@ -71,7 +73,7 @@ function clear() {
 function checkWord() {
     var answer = $('#answer').val().toUpperCase();
     if (answer != "") {
-        word == answer ? success() : fail();
+        word.toUpperCase() == answer ? success() : fail();
     } else {
         $('.result').html('<div>Podaj odpowiedź</div>');
     }

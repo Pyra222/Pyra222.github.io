@@ -4,3 +4,8 @@ $(document).on('keypress', '#answer', function (event) {
         checkWord();
     }
 })
+
+$(document).on('click', '.switch', function(event){
+    $('.reminder').toggleClass('hidden');
+    console.log('switched');
+})

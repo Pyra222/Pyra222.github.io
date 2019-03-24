@@ -48,9 +48,32 @@ html, body {
 
 .reminder {
     position: absolute;
-    bottom: 10px;
+    top: 40px;
     display: block;
-    width: 99%;
+    width: 100%;
+    padding-top: 10px;
+    background: rgb(22, 22, 22);
+    transition: top 1s;
+    z-index: 1;
+    border-bottom: 1px solid rgb(61,61,61);
+}
+
+.reminder.hidden{
+    top: -50%;
+}
+
+.switch{
+    position: relative;
+    display: block;
+    clear: both;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    height: 40px;
+    line-height: 40px;
+    z-index: 20;
+    background: rgb(22, 22, 22);
+    border-bottom: 1px solid rgb(61,61,61);
 }
 
 .side {
@@ -71,17 +94,18 @@ td {
 
 .container {
     position: absolute;
-    width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .row {
-    width: 100%;
+    width: 90%;
     height: 30px;
     text-align: center;
     margin: 5px;
@@ -139,11 +163,11 @@ button:active {
 }
 
 @media only screen and (max-width: 600px) {
-    .reminder {
-        display: none;
+    .reminder{
+        height: 50%;
     }
     .container {
-        top: 10px;
+        top: 50px;
         transform: translate(-50%, 0%);
     }
 }

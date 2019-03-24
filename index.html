@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="reminder">
+    <div class="reminder hidden">
         <div class="side">
             <table>
                 <tr>
@@ -115,8 +115,10 @@
     </div>
     <div class="container">
         <div class="row score alpha">
-            <span class="fail" id="scoreNeg">0</span>/<span id="scorePass">0</span>/<span class="success"
-                id="scorePos">0</span>
+            <span class="fail" id="scoreNeg">0</span
+            >/<span id="scorePass">0</span
+            >/<span class="success" id="scorePos">0</span
+            > of <span id="count">0</span>
         </div>
         <div class="row word elian"></div>
         <div class="row result elian"></div>
@@ -128,6 +130,9 @@
             <button id="ok" class="alpha" onclick="checkWord()">✓</button>
             <button id="next" class="alpha" onclick="next()">➝</button>
         </div>
+    </div>
+    <div class="switch">
+        𝒂𝒃𝒄
     </div>
 
     <script src="js/script.js"></script>
