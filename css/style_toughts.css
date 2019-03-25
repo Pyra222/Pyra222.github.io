@@ -1,0 +1,75 @@
+@font-face {
+    src: url(../fonts/elian.ttf);
+    font-family: elian;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: rgb(22, 22, 22);
+    color: white;
+}
+
+.text {
+    line-height: 30px;
+}
+
+.elian {
+    font-family: elian;
+    color: white;
+    text-shadow: 0px 0px 15px white;
+}
+
+.alpha {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.article {
+    font-size: 90%;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.subtitle {
+    font-weight: bold;
+}
+
+.page {
+    width: 100%;
+    text-align: center;
+}
+
+.page::before {
+    content: '-- ';
+}
+
+.page::after {
+    content: ' --';
+}
+
+@media only screen and (max-width: 600px) {
+    .reminder {
+        height: 50%;
+    }
+    .container {
+        width: 100%;
+    }
+}

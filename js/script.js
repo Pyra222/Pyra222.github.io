@@ -26,7 +26,7 @@ function getWord() {
 }
 
 function getRandomWord() {
-    let length = random_int(3, 21);
+    let length = random_int(3, 16);
     let random_word = "";
     for (var i = 0; i < length; i++) {
         random_word += letters[random_int(0, letters.length)];
