@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ZEN</title>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="top-bar"><img src="images/celtic.png" height="150"></div>
+            <div class="menu">
+                <ul class="menu-list">
+                    <li class="menu-item" onclick="load_main()">Główna</li>
+                    <li class="menu-item" onclick="load_articles()" id="articles-menu">Artykuły
+                        <ul class="dropdown-list">
+                        </ul>
+                    </li>
+                    <li class="menu-item" onclick="load_info()">Info</li>
+                </ul>
+            </div>
+            <div class="divider-top"></div>
+        </div>
+        <div class="body">
+
+        </div>
+        <div class="footer">
+            <div class="divider-bottom"></div>
+            <div class="info">
+                <a href="https://codepen.io/Klotor90/"><i class="fab fa-codepen"></i></span></a>
+                <a href="https://pyra222.github.io/"><span class="icon"><i class="fab fa-git"></i></span></a>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="scripts/load_main.js"></script>
+    <script src="scripts/libs/utils.js"></script>
+    <script src="scripts/load_info.js"></script>
+    <script src="scripts/load_articles.js"></script>
+</body>
+
+</html>
