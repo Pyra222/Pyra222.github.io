@@ -3,7 +3,8 @@
     border: 0px;
     font-family: 'Forum', cursive;
 }
-
+html, body {
+}
 .page {
     margin: 0px 20px;
 }
@@ -18,14 +19,19 @@
     text-align: center;
     font-size: 120%;
     padding: 20px 0px;
+    font-weight: bold;
 }
 
 .header {
+    font-size: 120%;
+    margin-top: 30px;
     width: 50%;
     border-bottom: 1px solid black;
     font-weight: bold;
 }
-
+.center{
+    text-align: center;
+}
 .tables {
     display: flex;
     justify-content: center;
@@ -36,6 +42,8 @@
     border-collapse: collapse;
     width: 100%;
     max-width: 600px;
+    background: rgb(255, 255, 240);
+    box-shadow: 0px 3px 2px rgba(0,0,0,0.4);
 }
 
 .tables td, .tables th {
@@ -43,17 +51,22 @@
     padding: 3px;
 }
 
+.tables th{
+    background: rgb(224, 197, 42);
+    text-align: center;
+}
+
 .tables td:first-of-type {
     text-align: center;
 }
 
 .dice {
-    color: rgb(100, 128, 0);
+    color: rgb(22, 145, 6);
     font-weight: bold;
 }
 
 .mod {
-    color: orange;
+    color: rgb(241, 168, 72);
     font-weight: bold;
 }
 
@@ -67,7 +80,13 @@
 }
 
 .test {
+    width: calc(100% - 20px);
     margin-left: 10px;
+    padding: 5px;
+    background: rgb(255, 255, 240);
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0px 3px 2px rgba(0,0,0,0.4);
 }
 
 .test .name {
