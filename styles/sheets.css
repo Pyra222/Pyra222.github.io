@@ -1,0 +1,75 @@
+* {
+    margin: 0px;
+    border: 0px;
+    font-family: 'Forum', cursive;
+}
+
+.page {
+    margin: 0px 20px;
+}
+
+.row {
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: 120%;
+    padding: 20px 0px;
+}
+
+.header {
+    width: 50%;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.tables {
+    display: flex;
+    justify-content: center;
+}
+
+.tables table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+}
+
+.tables td, .tables th {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.tables td:first-of-type {
+    text-align: center;
+}
+
+.dice {
+    color: rgb(100, 128, 0);
+    font-weight: bold;
+}
+
+.mod {
+    color: orange;
+    font-weight: bold;
+}
+
+.skill {
+    color: rgb(37, 125, 207);
+    font-weight: bold;
+}
+
+.text li {
+    margin-bottom: 5px;
+}
+
+.test {
+    margin-left: 10px;
+}
+
+.test .name {
+    font-weight: bold;
+}

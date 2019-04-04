@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sheets</title>
+    <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
+    <link rel="stylesheet" href="styles/sheets.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="row title">
+            <u>PRZYDATNE INFORMACJE</u>
+        </div>
+        <div class="row header">
+            WALKA
+        </div>
+        <div class="row text">
+            Gdy rozpoczyna się walka pierwszy rzuca bohater, następnie przeciwnik. Wszystkie ataki są wykonywane
+            <strong>jednocześnie</strong>. Jeżeli przeciwnik zostanie pokonany nadal rozpatruje się jego atak w
+            bierzącej turze.
+        </div>
+        <div class="row text">
+            <ol>
+                <li>Wykonaj rzut <span class="dice">d10</span> za reakcję przeciwnikia i zastosuj wynik.</li>
+                <li>Wykonaj rzut <span class="dice">d100</span>. Aby atak się powiódł wynik rzutu musi być niższy niż
+                    bądź równy
+                    wartości <span class="skill">STR</span> (dla broni białej(H)) lub <span class="skill">DEX</span>
+                    (dla broni miotającej(R)) bohatera.
+                    Jeżeli bohater używa dwóch
+                    broni
+                    może użyć dowolnej z nich, ale nie obu naraz. Jeżeli atak się powiódł przejdź do kroku 3; Jeżeli
+                    nie, do kroku 4.</li>
+                <li>Wykonaj rzut <span class="dice">d6</span> za obrażenia oraz <span class="dice">d10</span> za miejsce
+                    trafienia a następnie zastosuj <span class="mod">modyfikator miejsca trafienia</span>, <span
+                        class="mod">modyfikator DMG
+                    </span>broni (jeśli jest) oraz <span class="mod">wszystkie pozostałe modyfikatory</span> wynikające
+                    z używanych przedmiotów
+                    do wyniku rzutu za obrażenia. Następnie odejmij wartość <span class="mod">DEF</span> przeciwnika od
+                    zmodyfikowanego rzutu. Pozostała wartość to ilość <span class="skill">HP</span> jakie straci
+                    przeciwnik bądź przeciwnicy.</li>
+                <li>Wykonaj rzut <span class="dice">d100</span>. Aby atak przeciwnika się powiódł wynik rzutu musi być
+                    niższy bądź równy wartości jego <span class="skill">AV</span>. Jeżeli atak się powiódł przejdź do
+                    kroku 5; Jeżeli nie, rozpocznij nową rundę walki.</li>
+                <li>Wykonaj rzut <span class="dice">d6</span> za obrażenia oraz <span class="dice">d10</span> za miejsce
+                    trafienia a następnie zastosuj <span class="mod">modyfikator miejsca trafienia</span> oraz <span
+                        class="mod">modyfikator DMG
+                    </span>przeciwnika. Następnie odejmij wartość <span class="mod">DEF</span> części pancerza noszonej
+                    na miejscu trafienia (jeśli jest) od
+                    zmodyfikowanego rzutu. Pozostała wartość to ilość <span class="skill">HP</span> jakie straci
+                    bohater. Gracz może zdecydować, że zbroja w miejscu trafienia pochłania <strong>do 2</strong>
+                    punktów obrażeń w postaci utraty punktów wytrzymałości. Za każdy pochłonięty w ten sposób punkt
+                    obrażeń
+                    gracz musi zakreślić jedną kropkę na torze zniszczeń tej części pancerza. Jeżeli przeciwnik
+                    przetrwał, rozpoczyna się kolejna runda walki.</li>
+            </ol>
+        </div>
+        <div class="row header">
+            REAKCJA PRZECIWNIKA
+        </div>
+        <div class="row text">
+            Na początku każdej tury rzuć za reakcję przeciwnika.
+        </div>
+        <div class="row tables">
+            <table>
+                <tr>
+                    <th>Rzut <span class="dice">d10</span></th>
+                    <th>Reakcja przeciwnika</th>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Przeciwnik będzie uciekał</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Zraniony w ostatniej rundzie przeciwnik będzie uciekał</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Przeciwnik z mniej niż połową <span class="skill">HP</span> będzie uciekał</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Przeciwnik będzie atakował normalnie</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Przeciwnik będzie atakował normalnie</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Przeciwnik będzie atakował normalnie</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Przeciwnik będzie atakował normalnie</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Przeciwnik będzie atakował normalnie</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Przeciwnik z mniej niż połową <span class="skill">HP</span> otrzymuje bonus <span class="mod">AV
+                            +5</span></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Przeciwnik z mniej niż połową <span class="skill">HP</span> otrzymuje bonus <span class="mod">AV
+                            +10</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row header">
+            MIEJSCE TRAFIENIA
+        </div>
+        <div class="row tables">
+            <table>
+                <tr>
+                    <th>Rzut <span class="dice">d10</span></th>
+                    <th>Miejsce trafienia</th>
+                    <th>Modyfikator</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Głowa</td>
+                    <td><span class="mod">+3</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Plecy</td>
+                    <td><span class="mod">+2</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Tułów</td>
+                    <td><span class="mod">+1</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Ręce</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Dłonie</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Broń główna</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Broń dodatkowa</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Pas</td>
+                    <td>Test pasa</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Nogi</td>
+                    <td><span class="mod">-1</span></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Stopy</td>
+                    <td><span class="mod">-1</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row header">
+            UCIECZKA
+        </div>
+        <div class="row text">
+            Aby wymknąć się przeciwnikowi bohater zamiast atakować wykonuje test ucieczki.
+        </div>
+        <div class="row test">
+            <span class="name">UCIECZKA</span> - Test: <span class="mod">DEX -10</span> [S: Usuń przeciwnika] [F: <span
+                class="mod">HP -2</span>] (Ucieczka)
+        </div>
+        <div class="row text">
+            Kiedy przeciwnik próbuje uciekać bohater może mu na to pozwolić, zaatakować go, lub powstrzymać go przed
+            ucieczką.
+        </div>
+        <div class="row test">
+            <span class="name">POWSTRZYMAJ UCIECZKĘ</span> - Test: <span class="mod">STR -10</span> [S: Rozpocznij walkę
+            od kroku 3] [F: Usuń przeciwnika] (Ucieczka)
+        </div>
+        <div class="row header">
+            TURA
+        </div>
+        <div class="row text">
+            <ol>
+                <li><strong>WYMIANA EKWIPUNKU</strong> - Wymień używane przedmioty z przedmiotami z plecaka lub
+                    odwrotnie.</li>
+                <li><strong>UPŁYW CZASU</strong> - Zakreśl kolejny 🕐 na torze czasu. Jeżeli powoduje to jakieś
+                    zdarzenie musisz je teraz rozpatrzyć.</li>
+                <li><strong>WYJŚCIA</strong> - Wybierz wyjście którym będziesz opuszczał obecny obszar. Obróć mapę tak,
+                    aby wyjście znajdowało się na krawędzi najdalej od Ciebie. Rozpatrz efekty drzwi, lub wybierz inne
+                    wyjście.</li>
+                <li><strong>OBSZAR</strong> - Jeżeli nowy obszar już istnieje na mapie rozpatrz jego efekty; Jeżeli nie,
+                    dodaj nowy obszar do mapy.</li>
+                <li><strong>PRZESZUKIWANIE</strong> - Opcjonalnie, przeszukaj obaszar. Wykonaj rzut według tabeli F -
+                    FIND i rozpatrz efekt. Oznacz obszar literą Ⓢ aby pokazać, że był on już przeszukiwany. Rozpocznij
+                    nową turę.</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>
