@@ -147,6 +147,10 @@ body {
     background: rgb(33, 129, 33);
 }
 
+#roll:disabled {
+    background: rgb(111, 126, 111);
+}
+
 .sheet {
     margin: 10px;
     background: rgb(238, 237, 227);
