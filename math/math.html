@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Math</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="loadFile">
+        <div class="label">Wklej tekst i kliknij "Wczytaj"</div>
+        <textarea id="loadFileContents"></textarea>
+        <div class="btn" id="load">Wczytaj</div>
+        <div class="btn" id="loadFileClose">Zamknij</div>
+    </div>
+    <div class="copyFile">
+        <div class="label">Skopiuj i zapisz poniższy tekst.</div>
+        <textarea id="copyFileContents" readonly></textarea>
+        <div class="btn" id="copyFileClose">Zamknij</div>
+    </div>
+    <div class="container">
+        <div class="bufferArea">
+            <div class="buffer saveIcon"></div>
+            <div class="buffer" id="buffer1"></div>
+            <div class="buffer" id="buffer2"></div>
+            <div class="buffer" id="buffer3"></div>
+            <div class="buffer" id="buffer4"></div>
+            <div class="btn" id="copyFile">Kopiuj</div>
+            <div class="btn" id="loadFile">Wczytaj</div>
+            <div class="btn" id="new">Nowy</div>
+        </div>
+        <div class="eq_area">
+            <div class="entry eq" id="current">``</div>
+        </div>
+        <input class="input">
+    </div>
+    <div id="overlay"></div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "fast-preview": {
+                disabled:true
+            },
+            messageStyle: "none",
+            asciimath2jax: {
+                delimiters: [['`','`'], ['$','$']]
+            }
+        });
+        MathJax.Hub.processSectionDelay = 0;
+    </script>
+    <script src="script.js"></script>
+    <script src="events_mouse.js"></script>
+    <script src="events_keyboard.js"></script>
+</body>
+
+</html>
