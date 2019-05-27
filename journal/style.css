@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.header {
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    background: rgb(29, 28, 27);
+    color: rgb(220, 220, 220);
+}
+
+.page {
+    box-sizing: border-box;
+    padding: 10px;
+    background: rgb(29, 28, 27);
+    color: rgb(220, 220, 220);
+    text-rendering: optimizeLegibility;
+    border-bottom: 20px;
+}
+
+.date {
+    width: 100%;
+    text-align: right;
+}
+
+.title {
+    width: 100%;
+    font-weight: bold;
+    font-size: 120%;
+    margin-bottom: 10px;
+}
+
+.content {
+    width: 100%;
+}
+
+.content p {
+    margin-bottom: 10px;
+    text-align: justify;
+    position: relative;
+    display: inline-block;
+}
+
+.content p .overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    max-width: 600px;
+    height: calc(100% - 8px);
+    box-shadow: 0px 0px 10px rgb(29, 28, 27) inset, 0px 0px 8px rgb(29, 28, 27) inset, 0px 0px 6px rgb(29, 28, 27) inset, 0px 0px 4px rgb(29, 28, 27) inset, 0px 0px 2px rgb(29, 28, 27) inset;
+}
+
+.content p.img img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 7px;
+}
+
+.content p.img {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}

@@ -9,53 +9,20 @@ body {
     background-size: cover;
 }
 
-
-/* width */
-
 ::-webkit-scrollbar {
     width: 8px;
 }
-
-
-/* Track */
 
 ::-webkit-scrollbar-track {
     background: transparent;
 }
 
-
-/* Handle */
-
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
 
-
-/* Handle on hover */
-
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
-
-.d10 {
-    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.7));
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: url(./img/d10.png);
-    background-size: cover;
-    transform-origin: center center;
-}
-
-.d10 .number {
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-    line-height: 45px;
-    font-weight: bold;
-    text-shadow: 0px 0px 1px white;
-    text-decoration: underline;
 }
 
 .d6 {
@@ -79,109 +46,112 @@ body {
     text-decoration: underline;
 }
 
-.area {
-    position: relative;
+.infoBar {
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 5px;
+    height: 40px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
     width: 100%;
-    height: 20%;
-    margin-bottom: 60%;
+    overflow-y: scroll;
 }
 
-.button_area {
-    width: 100%;
-    height: 10%;
+.infoBar:hover {
+    height: 50%;
+}
+
+.infoLine {
+    height: 20px;
+}
+
+.infoLine::before {
+    content: '> ';
+}
+
+.infoLine .red {
+    color: rgb(226, 36, 11);
+}
+
+.infoLine .blue {
+    color: rgb(11, 122, 226);
+}
+
+.infoLine .gold {
+    color: goldenrod;
+}
+
+.infoLine .short {
+    display: inline-block;
+    width: 100px;
 }
 
 .container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 1000px;
-    height: 600px;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
-
-.character {
-    float: left;
-    width: 500px;
-    height: 100%;
-}
-
-.roll {
-    float: left;
-    width: 100px;
-    height: 100%;
-}
-
-.map {
-    display: flex;
-    height: 400px;
-    width: 400px;
-}
-
-.kills {
-    display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel {
+    width: 600px;
+    box-sizing: border-box;
+    /* border: 1px dashed yellow; */
+    height: 300px;
+    margin: 20px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+}
+
+.row.status {
+    height: 40px;
+    /* background: rgba(0, 200, 0, 0.1); */
+}
+
+.row.main {
+    height: 260px;
+    /* background: rgba(200, 0, 0, 0.1); */
+}
+
+.row > .field {
     flex: 1;
-    width: 400px;
-    height: 200px;
+    background: rgba(0, 0, 200, 0.1);
+    margin: 2px;
 }
 
-#roll {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background: rgb(20, 95, 20);
-    color: white;
-    font-size: 30px;
-    text-shadow: 0px 0px 3px white;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7) inset, 0px 0px 3px rgba(0, 0, 0, 0.7);
+.status {
+    display: flex;
+    flex-direction: row;
 }
 
-#roll:active {
-    background: rgb(33, 129, 33);
-}
-
-#roll:disabled {
-    background: rgb(111, 126, 111);
-}
-
-.sheet {
-    margin: 10px;
-    background: rgb(238, 237, 227);
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.7);
-    padding: 5px;
-    overflow-y: scroll;
-}
-
-.kill {
-    width: 100%;
-    overflow-y: hidden;
-}
-
-.kill table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 80%;
-}
-
-.kill table td:not(:first-of-type) {
+.status_icon {
+    background: white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    margin: 2px;
     text-align: center;
-    border-left: 1px solid black;
-    padding: 3px 0px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
 }
 
-.kill table tr:first-of-type {
-    border-bottom: 1px solid black;
+.fire {
+    background: rgb(236, 64, 21);
 }
 
-.kill table tr:last-of-type {
-    background: rgba(0, 0, 0, 0.1);
+.ice {
+    color: blue;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.stop {
+    background: rgb(8, 198, 231);
 }

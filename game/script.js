@@ -1,67 +1,27 @@
-/* sounds */
-var audio_dice = null;
-
-/* data */
-var kills = null;
-
-function loadSounds() {
-    return new Promise(function (resolve, reject) {
-        audio_dice = new Audio('./sfx/dice.wav');
-        resolve('audio loaded');
-    });
+let stats = {
+    str: 7,         // STRENGTH
+    agi: 6,         // AGILITY
+    sta: 6,         // STAMINA
+    wis: 5,         // WISDOM
+    pdef: 5,        // PHYSICAL DEFENCE
+    mdef: 5,        // MAGICAL DEFENCE
+    cha: 5          // CHARISMA
 }
 
-function loadData() {
-    return new Promise(function (resolve, reject) {
-        $.get('./data/kills.json').then(function (response) {
-            kills = response.kills;
-            renderKills(kills);
-        });
-    });
+let stats2 = {
+    str: 2,         // STRENGTH
+    agi: 4,         // AGILITY
+    sta: 2,         // STAMINA
+    wis: 0,         // WISDOM
+    pdef: 2,        // PHYSICAL DEFENCE
+    mdef: 1,        // MAGICAL DEFENCE
+    cha: 0          // CHARISMA
 }
 
-function renderKills() {
-    for (kill of kills) {
-        var kill_node = $(
-            `<tr>
-                <td>`+ kill.encounter + `</td>
-                <td>`+ kill.attack_value + `</td>
-                <td>`+ kill.defence + `</td>
-                <td>`+ ((kill.damage_mod >= 0) ? '+' + kill.damage_mod : kill.damage_mod) + `</td>
-                <td>`+ kill.health_points.join('/') + `</td>
-                <td>`+ kill.abilities.join(', ') + `</td>
-            </tr>`
-        );
-        $('.kill table').append(kill_node);
-    }
-}
+let p = new Creature('Herr Durr', stats);
+let r = new Creature('Rat', stats2);
 
-function roll() {
-    $('#d1').css('top', (Math.random() * 120 - 30) + 'px');
-    $('#d1').css('left', (Math.random() * 100 - 30) + 'px');
-    $('#d1').css('transform', 'rotate(' + Math.random() * 360 + 'deg)');
-    $('#d1 .number').html(Math.floor(Math.random() * 10));
-
-    $('#d2').css('top', (Math.random() * 120 - 30) + 'px');
-    $('#d2').css('left', (Math.random() * 100 - 30) + 'px');
-    $('#d2').css('transform', 'rotate(' + Math.random() * 360 + 'deg)');
-    $('#d2 .number').html(Math.floor(Math.random() * 10) + "0");
-
-    $('#d3').css('top', (Math.random() * 120 - 30) + 'px');
-    $('#d3').css('left', (Math.random() * 100 - 30) + 'px');
-    $('#d3').css('transform', 'rotate(' + Math.random() * 360 + 'deg)');
-    $('#d3 .number').html(Math.floor(Math.random() * 6 + 1));
-
-    $('#roll').attr('disabled', 'disabled');
-    audio_dice.play();
-    setTimeout(function () {
-        $('#roll').attr('disabled', false);
-    }, 1000);
-}
-
-function init() {
-    loadSounds();
-    loadData();
-}
-
-init();
+do {
+    fight(r, p, 'phy', 'claws');
+    fight(p, r, 'phy');
+} while (r.hp > 0 && p.hp > 0);

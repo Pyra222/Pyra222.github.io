@@ -8,63 +8,39 @@
     <title>Game</title>
     <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
-        <div>
-            <div class="roll">
-                <div class="area">
-                    <div class="d10" id="d1">
-                        <div class="number">7</div>
-                    </div>
-                </div>
-                <div class="area">
-                    <div class="d10" id="d2">
-                        <div class="number">30</div>
-                    </div>
-                </div>
-                <div class="area">
-                    <div class="d6" id="d3">
-                        <div class="number">4</div>
-                    </div>
-                </div>
-                <div class="button_area">
-                    <button id="roll" onclick="roll()">🎲</button>
-                </div>
+        <div class="infoBar" id="infoBar"></div>
+        <div class="panel enemy">
+            <div class="row main">
+                <div class="field stats"></div>
+                <div class="field actions"></div>
+                <div class="field inventory"></div>
             </div>
-            <div class="character">
-                <div class="sheet">
-
-                </div>
-            </div>
+            <div class="row status"></div>
         </div>
-        <div>
-            <div class="map">
-                <div class="sheet">
-
-                </div>
+        <div class="panel player">
+            <div class="row status">
+                <div class="status_icon fire">🔥</div>
+                <div class="status_icon ice">❄</div>
+                <div class="status_icon stop">⌛</div>
             </div>
-            <div class="kills">
-                <div class="sheet">
-                    <div class="kill">
-                        <table>
-                            <tr>
-                                <th>ENCOUNTER</th>
-                                <th>AV</th>
-                                <th>DEF</th>
-                                <th>DMG</th>
-                                <th>HP</th>
-                                <th>ABILITIES</th>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            <div class="row main">
+                <div class="field stats"></div>
+                <div class="field actions"></div>
+                <div class="field inventory"></div>
             </div>
         </div>
     </div>
-    </div>
+    <script src="InfoBar.js"></script>
+    <script src="tables.js"></script>
+    <script src="init.js"></script>
+    <script src="mech.js"></script>
+    <script src="Creature.js"></script>
     <script src="script.js"></script>
 </body>
 
