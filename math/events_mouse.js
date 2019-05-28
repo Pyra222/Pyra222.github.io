@@ -15,7 +15,13 @@ $(document).on('click', '#menu li', function () {
     switch ($(this).text()) {
         case "Usuń": {
             if ($(".entry").length > 1) {
-                currentEntry.prev().prop('id', 'current');
+                var next = null;
+                if (currentEntry.prev().length) {
+                    next = currentEntry.prev();
+                } else {
+                    next = currentEntry.next();
+                }
+                next.prop('id', 'current');
                 var text = $('#current').find('script').text();
                 $(".input").val(text);
                 currentEntry.remove();
@@ -45,7 +51,8 @@ $(document).on('click', '#menu li', function () {
                 oneDown();
             }
         } break;
-        case "Definicja": {
+        case "Zaznacz definicję":
+        case "Odznacz definicję": {
             $('#current').toggleClass('def');
         } break;
     }
@@ -82,6 +89,7 @@ $(document).on('click', '#copyFileClose', function (e) {
 $(document).on('click', '#loadFile', function (e) {
     $(".loadFile").show();
     $("#overlay").show();
+    $('#loadFileContents').focus();
 });
 
 $(document).on('click', '#loadFileClose', function (e) {
@@ -95,6 +103,9 @@ $(document).on('click', '#load', function (e) {
         .then(function () {
             $(".loadFile").hide();
             $("#overlay").hide();
+            $('.entry:last-of-type').prop('id', 'current');
+            $(".input").val($('#current').find('script').text());
+            $('.input').focus();
         })
         .catch(function (e) {
             alert('Parser JSON zwrócił następujący błąd:\n\n' + e.message);

@@ -29,13 +29,27 @@ function contextMenuAt(x, y) {
     if ($('#menu').length > 0) {
         return;
     }
+    var enabled = [true, true, true, false];
+    if ($(".entry").length <= 1) {
+        enabled[0] = false;
+    }
+    if ($('#current').prev().length <= 0) {
+        enabled[1] = false;
+    }
+    if ($('#current').next().length <= 0) {
+        enabled[2] = false;
+    }
+    if ($('#current').hasClass('def')) {
+        enabled[3] = true;
+    }
+    console.log(enabled);
     var template = `
         <div id="menu">
             <ul>
-            <li>Usuń</li>
-            <li>W górę</li>
-            <li>W dół</li>
-            <li>Definicja</li>
+            <li class="`+ (!enabled[0] ? 'disabled' : '') + `">Usuń</li>
+            <li class="`+ (!enabled[1] ? 'disabled' : '') + `">W górę</li>
+            <li class="`+ (!enabled[2] ? 'disabled' : '') + `">W dół</li>
+            <li>`+ (!enabled[3] ? 'Zaznacz definicję' : 'Odznacz definicję') + `</li>
             </ul>
         </div>
     `
