@@ -87,10 +87,11 @@
         },
         {
             "contents": "J_(n+1)=1/(2n)*t/(t^2+1)^n+(2n-1)/(2n)J_n",
-            "type": "eq"
+            "type": "eq",
+            "definition": true
         },
         {
-            "contents": "Otrzymany wzór sprowadza obliczenie całki Jn+1J_(n+1) do całki JnJ_n. Stosując go nn razy dojdziemy w końcu do całki J1J_1, którą znamy",
+            "contents": "Otrzymany wzór sprowadza obliczenie całki J_(n+1) do całki J_n. Stosując go n razy dojdziemy w końcu do całki J_1, którą znamy",
             "type": "text"
         },
         {

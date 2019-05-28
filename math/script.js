@@ -42,7 +42,6 @@ function contextMenuAt(x, y) {
     if ($('#current').hasClass('def')) {
         enabled[3] = true;
     }
-    console.log(enabled);
     var template = `
         <div id="menu">
             <ul>
@@ -55,7 +54,7 @@ function contextMenuAt(x, y) {
     `
     var menu = $(template);
     menu.css('top', y);
-    menu.css('left', x);
+    menu.css('left', x - 155);
     $('body').append(menu);
 }
 
