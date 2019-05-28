@@ -1,24 +1,25 @@
 $('.input').on('keydown', function (e) {
-    if (e.keyCode == 9) {
-        e.preventDefault();
-        if (e.shiftKey) {
-            oneUp();
-        } else {
-            oneDown();
+    if ($('#current').length) {
+        if (e.keyCode == 9) {
+            e.preventDefault();
+            if (e.shiftKey) {
+                oneUp();
+            } else {
+                oneDown();
+            }
+            return false;
         }
-        return false;
+        if (e.key == 'ArrowUp') {
+            e.preventDefault();
+            oneUp();
+            return false;
+        }
+        if (e.key == 'ArrowDown') {
+            e.preventDefault();
+            oneDown();
+            return false;
+        }
     }
-    if (e.key == 'ArrowUp') {
-        e.preventDefault();
-        oneUp();
-        return false;
-    }
-    if (e.key == 'ArrowDown') {
-        e.preventDefault();
-        oneDown();
-        return false;
-    }
-
     if (e.ctrlKey) {
         if (e.key == 's') {
             e.preventDefault();
@@ -72,6 +73,9 @@ $(".input").on('keyup', function (e) {
         updateFile();
     } else {
         var text = $(this).val();
+        if ($('#current').hasClass('text') && text == '') {
+            $('#current').text('');
+        };
         if (text.startsWith('#')) {
             $('#current').removeClass('eq');
             $('#current').addClass('text');

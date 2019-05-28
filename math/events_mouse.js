@@ -15,6 +15,9 @@ $(document).on('click', '#menu li', function () {
     switch ($(this).text()) {
         case "Usuń": {
             if ($(".entry").length > 1) {
+                currentEntry.prev().prop('id', 'current');
+                var text = $('#current').find('script').text();
+                $(".input").val(text);
                 currentEntry.remove();
             }
         } break;
