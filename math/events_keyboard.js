@@ -81,7 +81,7 @@ $(".input").on('keyup', function (e) {
             $('#current').addClass('text');
             text = text.substr(1);
             $('#current').html(text);
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
+            // MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
         } else {
             $('#current').removeClass('text');
             $('#current').addClass('eq');

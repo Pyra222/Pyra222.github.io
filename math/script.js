@@ -113,6 +113,9 @@ function updateFile() {
             var text = $element.text();
             file.nodes.push({ contents: text, type: 'text' })
         }
+        if ($element.hasClass('def')) {
+            file.nodes[file.nodes.length - 1].definition = true;
+        }
     });
     fileUpdated(true);
 }
@@ -132,6 +135,9 @@ function loadFile(fileText) {
                 $node.html('`' + element.contents + '`');
             } else {
                 $node.html(element.contents);
+            }
+            if (element.definition) {
+                $node.addClass('def');
             }
             $('.eq_area').append($node);
         });

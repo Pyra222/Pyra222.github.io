@@ -46,7 +46,55 @@
 {
     "nodes": [
         {
-            "contents": "I_1=int(x^3+x+1)/(x^3-1)dx",
+            "contents": "bb\"Wzór redukcyjny\"",
+            "type": "eq"
+        },
+        {
+            "contents": "Wyprowadzimy wzór redukcyjny na obliczenie całki",
+            "type": "text"
+        },
+        {
+            "contents": "J_n=intdt/(t^2+1)^n\\qquad\\qquad(n=1,2,3,...).",
+            "type": "eq"
+        },
+        {
+            "contents": "Całkujemy przez części",
+            "type": "text"
+        },
+        {
+            "contents": "intdt/(t^2+1)^n=|(u'=1,v=1/(t^2+1)^n),(u=t,v'=-(2nt)/((t^2+1)^(n+1)))|=t/(t^2+1)^n+2nintt^2/((t^2+1)^(n+1))dt",
+            "type": "eq"
+        },
+        {
+            "contents": "Ostatnią całkę przekształcamy",
+            "type": "text"
+        },
+        {
+            "contents": "intt^2/((t^2+1)^(n+1))dt=int((t^2+1)-1)/((t^2+1)^(n+1))dt=intdt/(t^2+1)^n-intdt/(t^2+1)^(n+1)",
+            "type": "eq"
+        },
+        {
+            "contents": "Podstawiając to wyrażenie do poprzedniej równości otrzymujemy",
+            "type": "text"
+        },
+        {
+            "contents": "J_n=t/(t^2+1)^n+2n(J_n-J_(n+1))",
+            "type": "eq"
+        },
+        {
+            "contents": "A stąd mamy zapowiadany wzór redukcyjny",
+            "type": "text"
+        },
+        {
+            "contents": "J_(n+1)=1/(2n)*t/(t^2+1)^n+(2n-1)/(2n)J_n",
+            "type": "eq"
+        },
+        {
+            "contents": "Otrzymany wzór sprowadza obliczenie całki Jn+1J_(n+1) do całki JnJ_n. Stosując go nn razy dojdziemy w końcu do całki J1J_1, którą znamy",
+            "type": "text"
+        },
+        {
+            "contents": "J_1=intdt/(t^2+1)=arctant+C",
             "type": "eq"
         },
         {
