@@ -104,3 +104,27 @@
         }
     ]
 }
+// ------------------------
+{
+    "nodes": [
+        {
+            "contents": "bb\"Ćwiczenie 1.2.4\"",
+            "type": "text",
+            "definition": true
+        },
+        {
+            "contents": "\"Scałkować podane równania o zmiennych rozdzielonych:\"",
+            "type": "text",
+            "definition": true
+        },
+        {
+            "contents": "{:[ \"a)\"\\ y'=y-1;,\"b)\"\\ y'=(1-t)/(y+1);,\"c)\"\\ (1+e^y)yy'=e^t; ],[ \"d)\"\\ y'sint=ylny;,\"e)\"\\ (e^yy+1)y'=2t,\"f)\"\\ (1+t+y+ty)y'=1]:}",
+            "type": "eq",
+            "definition": true
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        }
+    ]
+}

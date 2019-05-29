@@ -54,7 +54,12 @@ function contextMenuAt(x, y) {
     `
     var menu = $(template);
     menu.css('top', y);
-    menu.css('left', x - 155);
+    if (x > 155) {
+        menu.css('left', x - 155);
+    }
+    else {
+        menu.css('left', x);
+    }
     $('body').append(menu);
 }
 
@@ -109,7 +114,7 @@ function updateFile() {
             var text = $element.find('script').text();
             file.nodes.push({ contents: text, type: 'eq' })
         } else if ($element.hasClass('text')) {
-            var text = $element.text();
+            var text = $element.find('script').text();
             file.nodes.push({ contents: text, type: 'text' })
         }
         if ($element.hasClass('def')) {
@@ -130,11 +135,7 @@ function loadFile(fileText) {
         $('.eq_area').empty();
         file.nodes.forEach(element => {
             $node = $('<div class="entry ' + element.type + '"></div>');
-            if (element.type == 'eq') {
-                $node.html('`' + element.contents + '`');
-            } else {
-                $node.html(element.contents);
-            }
+            $node.html('`' + element.contents + '`');
             if (element.definition) {
                 $node.addClass('def');
             }

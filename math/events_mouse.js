@@ -4,7 +4,7 @@ $(document).on('click', '.entry', function () {
     $(this).prop('id', 'current');
     var text = "";
     if ($('#current').hasClass('text')) {
-        text = '#' + $(this).text();
+        text = '#' + $(this).find('script').text();
     } else {
         text = $(this).find('script').text();
     }

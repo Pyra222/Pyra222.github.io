@@ -73,19 +73,30 @@ $(".input").on('keyup', function (e) {
         updateFile();
     } else {
         var text = $(this).val();
-        // if ($('#current').hasClass('text') && text == '') {
-        //     $('#current').text('');
-        // };
+        if ($('#current').hasClass('text') && text == '') {
+            $('#current').text('');
+        };
         if (text.startsWith('#')) {
             $('#current').removeClass('eq');
             $('#current').addClass('text');
             text = text.substr(1);
+            var textWithMath = text.split('/');
+            console.log(textWithMath);
+            for (var i = 0; i < textWithMath.length; i++) {
+                if (textWithMath[i].startsWith('$') && textWithMath[i].endsWith('$')) {
+                    textWithMath[i] = textWithMath[i].slice(1, -1);
+                } else {
+                    textWithMath[i] = '"' + textWithMath[i] + '"';
+                }
+            }
+            var new_text = textWithMath.join('');
+            console.log(textWithMath);
             if ($('#current').text() == "") {
                 $('#current').text('``');
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
             }
             var math = MathJax.Hub.getAllJax("current")[0];
-            MathJax.Hub.Queue(["Text", math, text]);
+            MathJax.Hub.Queue(["Text", math, new_text]);
         } else {
             $('#current').removeClass('text');
             $('#current').addClass('eq');
