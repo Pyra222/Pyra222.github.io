@@ -21,6 +21,22 @@ $('.input').on('keydown', function (e) {
         }
     }
     if (e.ctrlKey) {
+        if (e.key == "Delete") {
+            e.preventDefault();
+            if ($(".entry").length > 1) {
+                var next = null;
+                if (currentEntry.prev().length) {
+                    next = currentEntry.prev();
+                } else {
+                    next = currentEntry.next();
+                }
+                next.prop('id', 'current');
+                var text = $('#current').find('script').text();
+                $(".input").val(text);
+                currentEntry.remove();
+            }
+            return;
+        }
         if (e.key == 's') {
             e.preventDefault();
             $('#copyFile').click();
@@ -55,6 +71,7 @@ $('.input').on('keydown', function (e) {
 });
 
 $(".input").on('keyup', function (e) {
+
     if (e.key == "Enter") {
         $("#current").prop('id', 'last');
 
@@ -67,9 +84,10 @@ $(".input").on('keyup', function (e) {
 
         $(this).val('');
         $('body').stop().animate({
-            scrollTop: $('$current')[0].scrollHeight + 200
+            scrollTop: $('#current')[0].scrollHeight + 200
         }, 800);
         fileUpdated(false);
+        currentEntry = $('#current');
         updateFile();
     } else {
         var text = $(this).val();

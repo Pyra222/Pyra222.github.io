@@ -12,6 +12,7 @@ function oneUp() {
         $('#current').click();
         $('#last').prop('id', '');
         $('#current').get(0).scrollIntoView({ block: "center" });
+        currentEntry = $('#current');
     }
 }
 
@@ -22,6 +23,7 @@ function oneDown() {
         $('#current').click();
         $('#last').prop('id', '');
         $('#current').get(0).scrollIntoView({ block: "center" });
+        currentEntry = $('#current');
     }
 }
 

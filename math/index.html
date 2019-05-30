@@ -34,7 +34,7 @@
         <div class="eq_area">
             <div class="entry eq" id="current">``</div>
         </div>
-        <input class="input">
+        <textarea class="input"></textarea>
     </div>
     <div id="overlay"></div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG'></script>
@@ -45,12 +45,16 @@
             },
             jax: ["input/AsciiMath", "output/SVG"],
             messageStyle: "none",
-            showMathMenu: false,
+            //showMathMenu: false,
             asciimath2jax: {
                 delimiters: [['`','`']],
             },
-            "SVG": {
-                font: "Latin-Modern"
+            SVG: {
+                font: "Latin-Modern",
+                linebreaks: {
+                    automatic: true,
+                    width: "container"
+                } 
             }
         });
         MathJax.Hub.processSectionDelay = 0;
