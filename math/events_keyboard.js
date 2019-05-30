@@ -67,7 +67,7 @@ $(".input").on('keyup', function (e) {
 
         $(this).val('');
         $('body').stop().animate({
-            scrollTop: $('body')[0].scrollHeight
+            scrollTop: $('$current')[0].scrollHeight + 200
         }, 800);
         fileUpdated(false);
         updateFile();

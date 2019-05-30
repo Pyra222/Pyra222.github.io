@@ -1,126 +1,129 @@
 {
     "nodes": [
         {
-            "contents": "\"Oblicz całkę\"\\quadI_1=int(x^2+1)/((x^2+2x+3)^2)dx",
-            "type": "eq"
-        },
-        {
-            "contents": "W mianowniku mamy nierozkładalną funkcję kwadratową w drugiej potędze, więc szukamy rozkładu na dwa ułamki proste drugiego rodzaju.",
-            "type": "text"
-        },
-        {
-            "contents": "(x^2+1)/((x^2+2x+3)^2)=(ax+b)/(x^2+2x+3)+(cx+d)/((x^2+2x+3)^2)",
-            "type": "eq"
-        },
-        {
-            "contents": "x^2+1=(ax+b)(x^2+2x+3)+cx+d=ax^3+(2a+b)x^2+(3a+2b+c)x+3b+d",
-            "type": "eq"
-        },
-        {
-            "contents": "{(a,=,0),(2a+b,=,1),(3a+2b+c,=,0),(3b+d,=,1) :}\\qquad=>\\qquada=0,\\ b=1,\\ c=-2\\ ,d=-2",
-            "type": "eq"
-        },
-        {
-            "contents": "int(x^2+1)/((x^2+2x+3)^2)dx=int(dx)/(x^2+2x+3)-int(2x+2)/((x^2+2x+3)^2)dx=A-B",
-            "type": "eq"
-        },
-        {
-            "contents": "Całkujemy ułamki proste",
-            "type": "text"
-        },
-        {
-            "contents": "A=int(dx)/(x^2+2x+3)=int(dx)/((x+1)^2+2)=int(dx)/(2((x+1)/(sqrt(2)))^2+1)",
-            "type": "eq"
-        },
-        {
-            "contents": "A=|t=(x+1)/sqrt(2),sqrt(2)dt=dx|=1/sqrt(2)int(dt)/(t^2+1)=1/sqrt(2)arctant+C=color(blue)(1/sqrt(2)\\ arctan((x+1)/(sqrt(2)))+C_1)",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        }
-    ]
-}
-//--------------------------
-{
-    "nodes": [
-        {
-            "contents": "bb\"Wzór redukcyjny\"",
-            "type": "eq"
-        },
-        {
-            "contents": "Wyprowadzimy wzór redukcyjny na obliczenie całki",
-            "type": "text"
-        },
-        {
-            "contents": "J_n=intdt/(t^2+1)^n\\qquad\\qquad(n=1,2,3,...).",
-            "type": "eq"
-        },
-        {
-            "contents": "Całkujemy przez części",
-            "type": "text"
-        },
-        {
-            "contents": "intdt/(t^2+1)^n=|(u'=1,v=1/(t^2+1)^n),(u=t,v'=-(2nt)/((t^2+1)^(n+1)))|=t/(t^2+1)^n+2nintt^2/((t^2+1)^(n+1))dt",
-            "type": "eq"
-        },
-        {
-            "contents": "Ostatnią całkę przekształcamy",
-            "type": "text"
-        },
-        {
-            "contents": "intt^2/((t^2+1)^(n+1))dt=int((t^2+1)-1)/((t^2+1)^(n+1))dt=intdt/(t^2+1)^n-intdt/(t^2+1)^(n+1)",
-            "type": "eq"
-        },
-        {
-            "contents": "Podstawiając to wyrażenie do poprzedniej równości otrzymujemy",
-            "type": "text"
-        },
-        {
-            "contents": "J_n=t/(t^2+1)^n+2n(J_n-J_(n+1))",
-            "type": "eq"
-        },
-        {
-            "contents": "A stąd mamy zapowiadany wzór redukcyjny",
-            "type": "text"
-        },
-        {
-            "contents": "J_(n+1)=1/(2n)*t/(t^2+1)^n+(2n-1)/(2n)J_n",
-            "type": "eq",
-            "definition": true
-        },
-        {
-            "contents": "Otrzymany wzór sprowadza obliczenie całki J_(n+1) do całki J_n. Stosując go n razy dojdziemy w końcu do całki J_1, którą znamy",
-            "type": "text"
-        },
-        {
-            "contents": "J_1=intdt/(t^2+1)=arctant+C",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        }
-    ]
-}
-// ------------------------
-{
-    "nodes": [
-        {
             "contents": "bb\"Ćwiczenie 1.2.4\"",
             "type": "text",
             "definition": true
         },
         {
             "contents": "\"Scałkować podane równania o zmiennych rozdzielonych:\"",
-            "type": "text",
-            "definition": true
+            "type": "text"
         },
         {
-            "contents": "{:[ \"a)\"\\ y'=y-1;,\"b)\"\\ y'=(1-t)/(y+1);,\"c)\"\\ (1+e^y)yy'=e^t; ],[ \"d)\"\\ y'sint=ylny;,\"e)\"\\ (e^yy+1)y'=2t,\"f)\"\\ (1+t+y+ty)y'=1]:}",
-            "type": "eq",
-            "definition": true
+            "contents": "{:[ bb\"a)\"\\ y'=y-1;,bb\"b)\"\\ y'=(1-t)/(y+1);,bb\"c)\"\\ (1+e^y)yy'=e^t; ],[ bb\"d)\"\\ y'sint=ylny;,bb\"e)\"\\ (e^yy+1)y'=2t,bb\"f)\"\\ (1+t+y+ty)y'=1]:}",
+            "type": "eq"
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "bb\"a)\"",
+            "type": "text"
+        },
+        {
+            "contents": "y'=y-1\\qquad=>\\qquaddy/dt=y-1",
+            "type": "eq"
+        },
+        {
+            "contents": "dy/(y-1)=dt",
+            "type": "eq"
+        },
+        {
+            "contents": "int1/(y-1)dy=intdt",
+            "type": "eq"
+        },
+        {
+            "contents": "ln|y-1|=t+c",
+            "type": "eq"
+        },
+        {
+            "contents": "color(blue)(y=c_1e^t+1,\\qquadc_1=e^c)",
+            "type": "eq"
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "bb\"b)\"",
+            "type": "text"
+        },
+        {
+            "contents": "y'=(1-t)/(y+1)\\qquad=>\\qquaddy/dt=(1-t)/(y+1)",
+            "type": "eq"
+        },
+        {
+            "contents": "(y+1)dy=(1-t)dt",
+            "type": "eq"
+        },
+        {
+            "contents": "y^2+2y=-t^2+2t+c",
+            "type": "eq"
+        },
+        {
+            "contents": "Delta=4, p=-1, q=-1",
+            "type": "eq"
+        },
+        {
+            "contents": "(y+1)^2=-t^2+2t+c+1",
+            "type": "eq"
+        },
+        {
+            "contents": "color(blue)(y_1=sqrt(-t^2+2t+c+1)-1)",
+            "type": "eq"
+        },
+        {
+            "contents": "color(blue)(y_2=-sqrt(-t^2+2t+c+1)-1)",
+            "type": "eq"
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "bb\"c)\"",
+            "type": "text"
+        },
+        {
+            "contents": "(1+e^y)yy'=e^t\\qquad=>\\qquad(1+e^y)ydy/dt=e^t",
+            "type": "eq"
+        },
+        {
+            "contents": "obrace((1+e^y)y)^(A)dy=obrace(e^t)^(B)dt",
+            "type": "eq"
+        },
+        {
+            "contents": "intBdt=inte^tdt=e^t+c_1",
+            "type": "eq"
+        },
+        {
+            "contents": "intAdy=intydy+intye^ydy=1/2y^2+B_1",
+            "type": "eq"
+        },
+        {
+            "contents": "B_1=intye^ydy=|(f'=e^y,g=y),(f=e^y,g'=1)|=ye^y-inte^ydy=ye^y-e^y+c_2",
+            "type": "eq"
+        },
+        {
+            "contents": "intAdy=1/2y^2+ye^y-e^y+c^2",
+            "type": "eq"
+        },
+        {
+            "contents": "color(blue)(1/2y^2+e^y(y-1)=e^t+c,\\qquad c=c_1-c_2),\\qquad(1)",
+            "type": "eq"
+        },
+        {
+            "contents": "\"(*) Według Wolfram|Alpha nie da się rozwikłać\".",
+            "type": "text"
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "bb\"d)\"",
+            "type": "text"
         },
         {
             "contents": "",
