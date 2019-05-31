@@ -33,12 +33,11 @@ $('.input').on('keydown', function (e) {
             MathJax.Hub.Queue(["Text", math, ""]);
 
             $(this).val('');
-            $('body').stop().animate({
-                scrollTop: $('#current')[0].scrollHeight + 200
-            }, 800);
+
             fileUpdated(false);
             currentEntry = $('#current');
             updateFile();
+            $('#current').get(0).scrollIntoView({ block: "center" });
             return;
         }
         if ($('#current').length) {

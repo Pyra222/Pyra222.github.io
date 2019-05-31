@@ -164,6 +164,8 @@ function loadFile(fileText) {
         updateFile();
         fileUpdated(true);
         resolve();
+    }).then(function () {
+        $('#overlay').show();
     });
 }
 
@@ -173,7 +175,7 @@ function copyFile() {
 
 function renderText(text) {
     var splitted = text.split('\\');
-    var ready = "";
+    var ready = "\\ ";
     for (token of splitted) {
         if (token == " " || token == "") {
             var newToken = "";
@@ -182,7 +184,7 @@ function renderText(text) {
             var newToken = token.slice(1, -1);
             ready = ready + newToken;
         } else {
-            var newToken = '\\ "' + token.split(' ').join('"\\ "') + '"';
+            var newToken = '"' + token.split(' ').join('"\\ "') + '"\\ ';
             ready = ready + newToken;
         }
     }

@@ -36,24 +36,30 @@ $(document).on('click', '#menu li', function () {
         case "W górę": {
             if ($('#current').prev().length >= 1) {
                 var temp = $('#current').html();
+                var tempData = $('#current').data('input');
                 $('#current').html($('#current').prev().html());
+                $('#current').data('input', $('#current').prev().data('input'));
                 if ($('#current').hasClass('def')) {
                     $('#current').prev().addClass('def');
                     $('#current').removeClass('def');
                 }
                 $('#current').prev().html(temp);
+                $('#current').prev().data('input', tempData);
                 oneUp();
             }
         } break;
         case "W dół": {
             if ($('#current').next().length >= 1) {
                 var temp = $('#current').html();
+                var tempData = $('#current').data('input');
                 $('#current').html($('#current').next().html());
+                $('#current').data('input', $('#current').next().data('input'));
                 if ($('#current').hasClass('def')) {
                     $('#current').next().addClass('def');
                     $('#current').removeClass('def');
                 }
                 $('#current').next().html(temp);
+                $('#current').next().data('input', tempData);
                 oneDown();
             }
         } break;
