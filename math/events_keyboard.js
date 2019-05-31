@@ -1,25 +1,4 @@
 $('.input').on('keydown', function (e) {
-    if ($('#current').length) {
-        if (e.keyCode == 9) {
-            e.preventDefault();
-            if (e.shiftKey) {
-                oneUp();
-            } else {
-                oneDown();
-            }
-            return false;
-        }
-        if (e.key == 'ArrowUp') {
-            e.preventDefault();
-            oneUp();
-            return false;
-        }
-        if (e.key == 'ArrowDown') {
-            e.preventDefault();
-            oneDown();
-            return false;
-        }
-    }
     if (e.ctrlKey) {
         if (e.key == "Delete") {
             e.preventDefault();
@@ -31,11 +10,57 @@ $('.input').on('keydown', function (e) {
                     next = currentEntry.next();
                 }
                 next.prop('id', 'current');
-                var text = $('#current').find('script').text();
+                if (next.hasClass('text')) {
+                    text = '#' + next.data('input');
+                } else {
+                    text = next.data('input');
+                }
+                console.log(text);
                 $(".input").val(text);
                 currentEntry.remove();
+                currentEntry = next;
             }
+            return false;
+        }
+        if (e.key == "Enter") {
+            $("#current").prop('id', 'last');
+
+            var newNode = $('<div class="entry eq" id="current">``</div>');
+            $('#last').after(newNode);
+            $('#last').prop('id', '');
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
+            var math = MathJax.Hub.getAllJax("current")[0];
+            MathJax.Hub.Queue(["Text", math, ""]);
+
+            $(this).val('');
+            $('body').stop().animate({
+                scrollTop: $('#current')[0].scrollHeight + 200
+            }, 800);
+            fileUpdated(false);
+            currentEntry = $('#current');
+            updateFile();
             return;
+        }
+        if ($('#current').length) {
+            if (e.keyCode == 9) {
+                e.preventDefault();
+                if (e.shiftKey) {
+                    oneUp();
+                } else {
+                    oneDown();
+                }
+                return false;
+            }
+            if (e.key == 'ArrowUp') {
+                e.preventDefault();
+                oneUp();
+                return false;
+            }
+            if (e.key == 'ArrowDown') {
+                e.preventDefault();
+                oneDown();
+                return false;
+            }
         }
         if (e.key == 's') {
             e.preventDefault();
@@ -71,52 +96,33 @@ $('.input').on('keydown', function (e) {
 });
 
 $(".input").on('keyup', function (e) {
-
-    if (e.key == "Enter") {
-        $("#current").prop('id', 'last');
-
-        var newNode = $('<div class="entry eq" id="current">``</div>');
-        $('#last').after(newNode);
-        $('#last').prop('id', '');
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
-        var math = MathJax.Hub.getAllJax("current")[0];
-        MathJax.Hub.Queue(["Text", math, ""]);
-
-        $(this).val('');
-        $('body').stop().animate({
-            scrollTop: $('#current')[0].scrollHeight + 200
-        }, 800);
-        fileUpdated(false);
-        currentEntry = $('#current');
-        updateFile();
-    } else {
-        var text = $(this).val();
-        // if ($('#current').hasClass('text') && text == '') {
-        //     $('#current').text('');
-        // };
-        if (text.startsWith('#')) {
-            $('#current').removeClass('eq');
-            $('#current').addClass('text');
-            text = text.substr(1);
-            if ($('#current').text() == "") {
-                $('#current').text('``');
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
-            }
-            var math = MathJax.Hub.getAllJax("current")[0];
-            MathJax.Hub.Queue(["Text", math, text]);
-        } else {
-            $('#current').removeClass('text');
-            $('#current').addClass('eq');
-            if ($('#current').text() == "") {
-                $('#current').text('``');
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
-            }
-            var math = MathJax.Hub.getAllJax("current")[0];
-            MathJax.Hub.Queue(["Text", math, text]);
+    var text = $(this).val();
+    if (text.startsWith('#')) {
+        text = text.substr(1);
+        $('#current').removeClass('eq');
+        $('#current').addClass('text');
+        if ($('#current').text() == "") {
+            $('#current').text('``');
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
         }
-        fileUpdated(false);
+        // ---------
+        ready = renderText(text);
+        // ---------
+        var math = MathJax.Hub.getAllJax("current")[0];
+        MathJax.Hub.Queue(["Text", math, ready]);
+        $('#current').data('input', text);
+    } else {
+        $('#current').removeClass('text');
+        $('#current').addClass('eq');
+        if ($('#current').text() == "") {
+            $('#current').text('``');
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
+        }
+        var math = MathJax.Hub.getAllJax("current")[0];
+        MathJax.Hub.Queue(["Text", math, text]);
+        $('#current').data('input', text);
     }
-
+    fileUpdated(false);
 });
 
 $(document).on('keyup', function (e) {
@@ -126,3 +132,6 @@ $(document).on('keyup', function (e) {
         $("#overlay").hide();
     }
 });
+/**
+ #Raz dwa trzy cztery, łamanie linii powinno działać jak należy, i to nawet szybko! Teraz na następnej linijce będziemy robić całkę \$int_0^xf(t)dt=0$\ a potem zobaczymy co z tego wyjdzie. Łamanie linii działa i umieszcza rzeczy jak należy! Teraz tylko zapisywanie...
+ */

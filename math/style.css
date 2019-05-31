@@ -37,8 +37,8 @@ hr {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    height: 50px;
-    line-height: 50px;
+    height: 150px;
+    line-height: 30px;
     font-size: 20px;
     border: none;
     box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.4);
@@ -142,7 +142,7 @@ hr {
 .eq#current.def, .text#current.def {
     /* border-radius: 5px; */
     box-shadow: 2px 0px 1px -1px rgb(134, 207, 236) inset, -2px 0px -1px 0px rgb(134, 207, 236) inset;
-    /* background: rgba(134, 207, 236, 0.1); */
+    background: rgba(134, 207, 236, 0.1);
 }
 
 .hidden {

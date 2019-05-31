@@ -9,10 +9,10 @@ function oneUp() {
     if ($('#current').prev().length >= 1) {
         $('#current').prop('id', 'last');
         $('#last').prev().prop('id', 'current');
-        $('#current').click();
         $('#last').prop('id', '');
         $('#current').get(0).scrollIntoView({ block: "center" });
-        currentEntry = $('#current');
+        // currentEntry = $('#current');
+        $('#current').click();
     }
 }
 
@@ -23,7 +23,7 @@ function oneDown() {
         $('#current').click();
         $('#last').prop('id', '');
         $('#current').get(0).scrollIntoView({ block: "center" });
-        currentEntry = $('#current');
+        // currentEntry = $('#current');
     }
 }
 
@@ -113,10 +113,10 @@ function updateFile() {
     $('.entry').each(function (index, element) {
         $element = $(element);
         if ($element.hasClass('eq')) {
-            var text = $element.find('script').text();
+            var text = $element.data('input');
             file.nodes.push({ contents: text, type: 'eq' })
         } else if ($element.hasClass('text')) {
-            var text = $element.find('script').text();
+            var text = $element.data('input');
             file.nodes.push({ contents: text, type: 'text' })
         }
         if ($element.hasClass('def')) {
@@ -124,6 +124,16 @@ function updateFile() {
         }
     });
     fileUpdated(true);
+}
+
+function fileUpdated(b) {
+    if (b) {
+        $(".saveIcon").addClass('green');
+        $(".saveIcon").removeClass('red');
+    } else {
+        $(".saveIcon").addClass('red');
+        $(".saveIcon").removeClass('green');
+    }
 }
 
 function loadFile(fileText) {
@@ -137,7 +147,14 @@ function loadFile(fileText) {
         $('.eq_area').empty();
         file.nodes.forEach(element => {
             $node = $('<div class="entry ' + element.type + '"></div>');
-            $node.html('`' + element.contents + '`');
+            if (element.type == 'text') {
+                $node.html('`' + renderText(element.contents) + '`');
+                $node.data('input', element.contents);
+            } else {
+                $node.html('`' + element.contents + '`');
+                $node.data('input', element.contents);
+            }
+
             if (element.definition) {
                 $node.addClass('def');
             }
@@ -154,14 +171,22 @@ function copyFile() {
     var fileText = JSON.stringify(file);
 }
 
-function fileUpdated(b) {
-    if (b) {
-        $(".saveIcon").addClass('green');
-        $(".saveIcon").removeClass('red');
-    } else {
-        $(".saveIcon").addClass('red');
-        $(".saveIcon").removeClass('green');
+function renderText(text) {
+    var splitted = text.split('\\');
+    var ready = "";
+    for (token of splitted) {
+        if (token == " " || token == "") {
+            var newToken = "";
+            ready = ready + newToken;
+        } else if (token.startsWith('$') && token.endsWith('$')) {
+            var newToken = token.slice(1, -1);
+            ready = ready + newToken;
+        } else {
+            var newToken = '\\ "' + token.split(' ').join('"\\ "') + '"';
+            ready = ready + newToken;
+        }
     }
+    return ready;
 }
 
 function init() {

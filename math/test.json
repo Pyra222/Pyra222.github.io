@@ -1,129 +1,41 @@
 {
     "nodes": [
         {
-            "contents": "bb\"Ćwiczenie 1.2.4\"",
+            "contents": "bb\"Definicja 1.3.1 \" \"(równanie różniczkowe jednorodne)\"",
             "type": "text",
             "definition": true
         },
         {
-            "contents": "\"Scałkować podane równania o zmiennych rozdzielonych:\"",
+            "contents": "\"Równanie różniczkowe, które można zapisać w postaci\"",
             "type": "text"
         },
         {
-            "contents": "{:[ bb\"a)\"\\ y'=y-1;,bb\"b)\"\\ y'=(1-t)/(y+1);,bb\"c)\"\\ (1+e^y)yy'=e^t; ],[ bb\"d)\"\\ y'sint=ylny;,bb\"e)\"\\ (e^yy+1)y'=2t,bb\"f)\"\\ (1+t+y+ty)y'=1]:}",
+            "contents": "y'=f(y/t),\\qquad(J)",
             "type": "eq"
         },
         {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "bb\"a)\"",
+            "contents": "\"nazywamy równaniem jednorodnym.\"",
             "type": "text"
         },
         {
-            "contents": "y'=y-1\\qquad=>\\qquaddy/dt=y-1",
-            "type": "eq"
-        },
-        {
-            "contents": "dy/(y-1)=dt",
-            "type": "eq"
-        },
-        {
-            "contents": "int1/(y-1)dy=intdt",
-            "type": "eq"
-        },
-        {
-            "contents": "ln|y-1|=t+c",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y=c_1e^t+1,\\qquadc_1=e^c)",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "bb\"b)\"",
-            "type": "text"
-        },
-        {
-            "contents": "y'=(1-t)/(y+1)\\qquad=>\\qquaddy/dt=(1-t)/(y+1)",
-            "type": "eq"
-        },
-        {
-            "contents": "(y+1)dy=(1-t)dt",
-            "type": "eq"
-        },
-        {
-            "contents": "y^2+2y=-t^2+2t+c",
-            "type": "eq"
-        },
-        {
-            "contents": "Delta=4, p=-1, q=-1",
-            "type": "eq"
-        },
-        {
-            "contents": "(y+1)^2=-t^2+2t+c+1",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y_1=sqrt(-t^2+2t+c+1)-1)",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y_2=-sqrt(-t^2+2t+c+1)-1)",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "bb\"c)\"",
-            "type": "text"
-        },
-        {
-            "contents": "(1+e^y)yy'=e^t\\qquad=>\\qquad(1+e^y)ydy/dt=e^t",
-            "type": "eq"
-        },
-        {
-            "contents": "obrace((1+e^y)y)^(A)dy=obrace(e^t)^(B)dt",
-            "type": "eq"
-        },
-        {
-            "contents": "intBdt=inte^tdt=e^t+c_1",
-            "type": "eq"
-        },
-        {
-            "contents": "intAdy=intydy+intye^ydy=1/2y^2+B_1",
-            "type": "eq"
-        },
-        {
-            "contents": "B_1=intye^ydy=|(f'=e^y,g=y),(f=e^y,g'=1)|=ye^y-inte^ydy=ye^y-e^y+c_2",
-            "type": "eq"
-        },
-        {
-            "contents": "intAdy=1/2y^2+ye^y-e^y+c^2",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(1/2y^2+e^y(y-1)=e^t+c,\\qquad c=c_1-c_2),\\qquad(1)",
-            "type": "eq"
-        },
-        {
-            "contents": "\"(*) Według Wolfram|Alpha nie da się rozwikłać\".",
+            "contents": "Uwaga. Jeżeli równanie \\$f(u)-=u\\$, to równanie jednorodne przyjmuje postać \\$y'=y/t$\\ i całkuje się przy pomocy metody rozdzielania zmiennych. Jego rozwiązanie dane jest wtedy wzorem \\$y(t)=Ct$\\, gdzie \\$C$\\ oznacza dowolną stałą rzeczywistą. Jeżeli \\$f(u_0)=u_0$\\ dla pewnego \\$u_0$\\, to jednym z rozwiązań równania \\$(J)$\\ jest funkcja \\$y(t)=u_0t$\\.",
             "type": "text"
         },
         {
             "contents": "",
             "type": "eq"
+        }
+    ]
+}
+{
+    "nodes": [
+        {
+            "contents": "Raz dwa trzy cztery, łamanie linii powinno działać jak należy, i to nawet szybko! Teraz na następnej linijce będziemy robić całkę \\$int_0^xf(t)dt=0$\\ a potem zobaczymy co z tego wyjdzie. Łamanie linii działa i umieszcza rzeczy jak należy! Teraz tylko zapisywanie...",
+            "type": "text"
         },
         {
-            "contents": "bb\"d)\"",
-            "type": "text"
+            "contents": "f(x)=lim_(x->0)graddx/dt",
+            "type": "eq"
         },
         {
             "contents": "",

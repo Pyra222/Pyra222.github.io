@@ -4,11 +4,12 @@ $(document).on('click', '.entry', function () {
     $(this).prop('id', 'current');
     var text = "";
     if ($('#current').hasClass('text')) {
-        text = '#' + $(this).find('script').text();
+        text = '#' + $(this).data('input');
     } else {
-        text = $(this).find('script').text();
+        text = $(this).data('input');
     }
     $('.input').val(text);
+    currentEntry = $('#current');
 });
 
 $(document).on('click', '#menu li', function () {
@@ -22,9 +23,14 @@ $(document).on('click', '#menu li', function () {
                     next = currentEntry.next();
                 }
                 next.prop('id', 'current');
-                var text = $('#current').find('script').text();
+                if ($('#current').hasClass('text')) {
+                    text = '#' + $('#current').data('input');
+                } else {
+                    text = $('#current').data('input');
+                }
                 $(".input").val(text);
                 currentEntry.remove();
+                currentEntry = next;
             }
         } break;
         case "W górę": {
@@ -60,7 +66,6 @@ $(document).on('click', '#menu li', function () {
 
 $(document).on('click', function () {
     $('#menu').remove();
-    currentEntry = null;
 });
 
 $(document).on('click', '.buffer', function () {
@@ -104,7 +109,7 @@ $(document).on('click', '#load', function (e) {
             $(".loadFile").hide();
             $("#overlay").hide();
             $('.entry:last-of-type').prop('id', 'current');
-            $(".input").val($('#current').find('script').text());
+            $(".input").val($('#current').data('input'));
             $('.input').focus();
         })
         .catch(function (e) {
