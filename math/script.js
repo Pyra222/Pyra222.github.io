@@ -171,6 +171,7 @@ function loadFile(fileText) {
 
 function copyFile() {
     var fileText = JSON.stringify(file);
+    window.localStorage.setItem('temp', fileText);
 }
 
 function renderText(text) {
