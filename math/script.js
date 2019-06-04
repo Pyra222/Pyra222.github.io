@@ -31,7 +31,7 @@ function contextMenuAt(x, y) {
     if ($('#menu').length > 0) {
         return;
     }
-    var enabled = [true, true, true, false];
+    var enabled = [true, true, true, false, false];
     if ($(".entry").length <= 1) {
         enabled[0] = false;
     }
@@ -44,13 +44,19 @@ function contextMenuAt(x, y) {
     if ($('#current').hasClass('def')) {
         enabled[3] = true;
     }
+    if ($('#current').hasClass('eq')) {
+        if ($('#current').children('.mark').length) {
+            enabled[4] = true;
+        }
+    }
     var template = `
         <div id="menu">
             <ul>
             <li class="`+ (!enabled[0] ? 'disabled' : '') + `">Usuń</li>
-            <li class="`+ (!enabled[1] ? 'disabled' : '') + `">W górę</li>
-            <li class="`+ (!enabled[2] ? 'disabled' : '') + `">W dół</li>
+            <!--<li class="`+ (!enabled[1] ? 'disabled' : '') + `">W górę</li>-->
+            <!--<li class="`+ (!enabled[2] ? 'disabled' : '') + `">W dół</li>-->
             <li>`+ (!enabled[3] ? 'Zaznacz definicję' : 'Odznacz definicję') + `</li>
+            <li>`+ (!enabled[4] ? 'Oznacz równanie' : 'Usuń oznaczenie') + `</li>
             </ul>
         </div>
     `
@@ -122,6 +128,9 @@ function updateFile() {
         if ($element.hasClass('def')) {
             file.nodes[file.nodes.length - 1].definition = true;
         }
+        if ($element.children('.mark').length) {
+            file.nodes[file.nodes.length - 1].mark = $element.children('.mark').text();
+        }
     });
     fileUpdated(true);
 }
@@ -158,6 +167,11 @@ function loadFile(fileText) {
             if (element.definition) {
                 $node.addClass('def');
             }
+
+            if (element.mark) {
+                $node.append('<span class="mark">' + element.mark + '</span>');
+            }
+
             $('.eq_area').append($node);
         });
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);

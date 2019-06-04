@@ -33,35 +33,45 @@ $(document).on('click', '#menu li', function () {
                 currentEntry = next;
             }
         } break;
-        case "W górę": {
-            if ($('#current').prev().length >= 1) {
-                var temp = $('#current').html();
-                var tempData = $('#current').data('input');
-                $('#current').html($('#current').prev().html());
-                $('#current').data('input', $('#current').prev().data('input'));
-                if ($('#current').hasClass('def')) {
-                    $('#current').prev().addClass('def');
-                    $('#current').removeClass('def');
-                }
-                $('#current').prev().html(temp);
-                $('#current').prev().data('input', tempData);
-                oneUp();
-            }
+        // case "W górę": {
+        //     if ($('#current').prev().length >= 1) {
+        //         var temp = $('#current').html();
+        //         var tempData = $('#current').data('input');
+        //         $('#current').html($('#current').prev().html());
+        //         $('#current').data('input', $('#current').prev().data('input'));
+        //         if ($('#current').hasClass('def')) {
+        //             $('#current').prev().addClass('def');
+        //             $('#current').removeClass('def');
+        //         }
+        //         $('#current').prev().html(temp);
+        //         $('#current').prev().data('input', tempData);
+        //         oneUp();
+        //     }
+        // } break;
+        // case "W dół": {
+        //     if ($('#current').next().length >= 1) {
+        //         var temp = $('#current').html();
+        //         var tempData = $('#current').data('input');
+        //         $('#current').html($('#current').next().html());
+        //         $('#current').data('input', $('#current').next().data('input'));
+        //         if ($('#current').hasClass('def')) {
+        //             $('#current').next().addClass('def');
+        //             $('#current').removeClass('def');
+        //         }
+        //         $('#current').next().html(temp);
+        //         $('#current').next().data('input', tempData);
+        //         oneDown();
+        //     }
+        // } break;
+        case "Oznacz równanie": {
+            $(".markEntry").show();
+            $("#overlay").show();
+            $('#mark').focus();
         } break;
-        case "W dół": {
-            if ($('#current').next().length >= 1) {
-                var temp = $('#current').html();
-                var tempData = $('#current').data('input');
-                $('#current').html($('#current').next().html());
-                $('#current').data('input', $('#current').next().data('input'));
-                if ($('#current').hasClass('def')) {
-                    $('#current').next().addClass('def');
-                    $('#current').removeClass('def');
-                }
-                $('#current').next().html(temp);
-                $('#current').next().data('input', tempData);
-                oneDown();
-            }
+        case "Usuń oznaczenie": {
+            currentEntry.children('.mark').remove();
+            $('#mark').val('');
+            $('.input').focus();
         } break;
         case "Zaznacz definicję":
         case "Odznacz definicję": {
@@ -108,6 +118,12 @@ $(document).on('click', '#loadFileClose', function (e) {
     $("#overlay").hide();
 });
 
+$(document).on('click', '#markEntryClose', function (e) {
+    $(".markEntry").hide();
+    $('#mark').val('');
+    $("#overlay").hide();
+});
+
 $(document).on('click', '#load', function (e) {
     var $file = $('#loadFileContents').val();
     loadFile($file)
@@ -121,6 +137,14 @@ $(document).on('click', '#load', function (e) {
         .catch(function (e) {
             alert('Parser JSON zwrócił następujący błąd:\n\n' + e.message);
         });
+});
+
+$(document).on('click', '#markEntry', function (e) {
+    var mark = $('#mark').val();
+    currentEntry.append('<span class="mark">' + mark + '</span>');
+    $(".markEntry").hide();
+    $("#overlay").hide();
+    $('.input').focus();
 });
 
 $(document).on('click', '#new', function () {

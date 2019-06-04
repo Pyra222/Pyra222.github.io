@@ -9,24 +9,30 @@
 </head>
 
 <body>
-    <div class="loadFile">
+    <div class="modal loadFile">
         <div class="label">Wklej tekst i kliknij "Wczytaj"</div>
         <textarea id="loadFileContents"></textarea>
         <div class="btn" id="load">Wczytaj</div>
         <div class="btn" id="loadFileClose">Zamknij</div>
     </div>
-    <div class="copyFile">
+    <div class="modal copyFile">
         <div class="label">Skopiuj i zapisz poniższy tekst.</div>
         <textarea id="copyFileContents" readonly></textarea>
         <div class="btn" id="copyFileClose">Zamknij</div>
     </div>
+    <div class="modal markEntry">
+        <div class="label">Wpisz znacznik</div>
+        <input id="mark"></input>
+        <div class="btn" id="markEntry">Oznacz</div>
+        <div class="btn" id="markEntryClose">Zamknij</div>
+    </div>
     <div class="container">
         <div class="bufferArea">
             <div class="buffer saveIcon"></div>
-            <div class="buffer" id="buffer1"></div>
+            <!-- <div class="buffer" id="buffer1"></div>
             <div class="buffer" id="buffer2"></div>
             <div class="buffer" id="buffer3"></div>
-            <div class="buffer" id="buffer4"></div>
+            <div class="buffer" id="buffer4"></div> -->
             <div class="btn" id="copyFile">Kopiuj</div>
             <div class="btn" id="loadFile">Wczytaj</div>
             <div class="btn" id="new">Nowy</div>
