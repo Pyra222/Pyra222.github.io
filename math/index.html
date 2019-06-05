@@ -43,21 +43,28 @@
         <textarea class="input"></textarea>
     </div>
     <div id="overlay"></div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML'></script>
 
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             "fast-preview": {
                 disabled:false
             },
-            jax: ["input/AsciiMath", "output/SVG"],
+            jax: ["input/AsciiMath", "output/HTML-CSS"],
             messageStyle: "none",
-            //showMathMenu: false,
+            showMathMenu: false,
             asciimath2jax: {
                 delimiters: [['`','`']],
             },
             SVG: {
                 font: "Latin-Modern",
+                linebreaks: {
+                    automatic: true,
+                    width: "container"
+                } 
+            },
+            "HTML-CSS": {
+                webFont: "Latin-Modern",
                 linebreaks: {
                     automatic: true,
                     width: "container"
