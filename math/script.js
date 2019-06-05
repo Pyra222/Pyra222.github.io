@@ -174,7 +174,10 @@ function loadFile(fileText) {
 
             $('.eq_area').append($node);
         });
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        $('#overlay').show();
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub], function () {
+            $('#overlay').hide();
+        });
         updateFile();
         fileUpdated(true);
         resolve();

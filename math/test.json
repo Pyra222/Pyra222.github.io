@@ -308,15 +308,15 @@
             "type": "text"
         },
         {
-            "contents": "y^3:y^3+3y^2+3y+1=1-1/(3x^2+3x+1",
+            "contents": "y^3\\ :\\ y^3+3y^2+3y+1=1+(3y^2+3y+1)/((y+1)^3)",
             "type": "eq"
         },
         {
-            "contents": "Wprowadzamy obliczony iloraz oraz resztę pod całkę i stosujemy zasadę sumowania całek:",
+            "contents": "Wstawiając wynik do (B) otrzymujemy:",
             "type": "text"
         },
         {
-            "contents": "inty^3/(y+1)^3dy=intdy-int1/(3x^2+3x+1)dy",
+            "contents": "inty^3/(y+1)^3dy=intdy+int(3y^2+3y+1)/((y+1)^3)dy",
             "type": "eq"
         },
         {
@@ -328,19 +328,133 @@
             "type": "eq"
         },
         {
-            "contents": "Aby obliczyć drugą całkę, musimy sprowadzić trójmian w mianowniku do postaci kanonicznej, ponieważ jego wyznacznik \\$Delta=-3$\\ jest mniejszy od zera:",
+            "contents": "W drugiej całce należy ponownie rozłożyć wyrażenie podcałkowe na ułamki proste:",
             "type": "text"
         },
         {
-            "contents": "3y^2+3y+1=3(y+1/2)^2+1/4",
+            "contents": "(3y^2+3y+1)/((y+1)^3)=a/(y+1)^3+b/(y+1)^2+c/(y+1)",
             "type": "eq"
         },
         {
-            "contents": "Co daje:",
+            "contents": "3y^2+3y+1=a+b(y+1)+c(y+1)^2=a+by+b+cy^2+2cy+c",
+            "type": "eq"
+        },
+        {
+            "contents": "3y^2+3y+1=cy^2+(2c+b)y+a+b+c",
+            "type": "eq"
+        },
+        {
+            "contents": "{(c,=,3),(2c+b,=,3),(a+b+c,=,1):}\\qquad=>\\qquadc=3,\\ b=-3,\\ a=1",
+            "type": "eq"
+        },
+        {
+            "contents": "Wstawiamy obliczone wartości do wyrażenia podcałkowego i kożystamy z własności sumy całek:",
             "type": "text"
         },
         {
-            "contents": "-int1/(3(y+1/2)^2+1/4)dy=",
+            "contents": "int(3y^2+3y+1)/((y+1)^3)dy=int1/(y+1)^3dy-3int1/(y+1)^2dy+3int1/(y+1)dy",
+            "type": "eq"
+        },
+        {
+            "contents": "Rozwiązujemy całki po kolei:",
+            "type": "text"
+        },
+        {
+            "contents": "int1/(y+1)^3dy=|(u=y+1),(du=dy)|=intu^-3du=-1/2u^-2+C_1=-1/(2(y+1)^2)+C_1",
+            "type": "eq"
+        },
+        {
+            "contents": "-3int1/(y+1)^2dy=|j.w|=-3intu^-2du=3u^-1+C_2=3/(y+1)+C_2",
+            "type": "eq"
+        },
+        {
+            "contents": "3int1/(y+1)dy=3ln|y+1|+C_3",
+            "type": "eq"
+        },
+        {
+            "contents": "Składamy wszystkie części rozwiązania razem:",
+            "type": "text"
+        },
+        {
+            "contents": "inty^3/(y+1)^3dy=y-1/(2(y+1)^2)+3/(y+1)+3ln|y+1|+C",
+            "type": "eq"
+        },
+        {
+            "contents": "Upraszczamy formę:",
+            "type": "text"
+        },
+        {
+            "contents": "inty^3/(y+1)^3dy=color(blue)(y+(6y+3)/(2(y+1)^2)+3ln|y+1|+C)",
+            "type": "eq"
+        },
+        {
+            "contents": "Łącząc otrzymane wyniki dostajemy rozwiązanie:",
+            "type": "text"
+        },
+        {
+            "contents": "color(blue)(ln|1+x|+(4x+3)/(2(1+x)^2)=y+(6y+3)/(2(y+1)^2)+3ln|y+1|+C)",
+            "type": "eq"
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "\\$bb\"e)\"$\\",
+            "type": "text",
+            "definition": true
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "dy/dx=xy^2+x",
+            "type": "eq"
+        },
+        {
+            "contents": "dy/dx=x(y^2+1)",
+            "type": "eq"
+        },
+        {
+            "contents": "int1/(y^2+1)dy=intxdx",
+            "type": "eq"
+        },
+        {
+            "contents": "arctan(y)=1/2x^2+C",
+            "type": "eq"
+        },
+        {
+            "contents": "color(blue)(y=tan(1/2x^2+C))",
+            "type": "eq"
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "\\$bb\"f)\"$\\",
+            "type": "text",
+            "definition": true
+        },
+        {
+            "contents": "",
+            "type": "eq"
+        },
+        {
+            "contents": "(y^2+xy^2)dx+(x^2-x^2y)dy=0",
+            "type": "eq"
+        },
+        {
+            "contents": "y^2(1+x)dx=x^2(y-1)dy",
+            "type": "eq"
+        },
+        {
+            "contents": "(1+x)/(x^2)dx=(y-1)/(y^2)dy",
+            "type": "eq"
+        },
+        {
+            "contents": "",
             "type": "eq"
         }
     ]
