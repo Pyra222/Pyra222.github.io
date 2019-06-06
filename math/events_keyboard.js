@@ -1,3 +1,27 @@
+$(document).on('keydown', function (e) {
+    if (e.altKey && e.ctrlKey && e.key == 'w') {
+        // console.log('aaaaa');
+        e.preventDefault();
+        e.stopPropagation();
+        $('.input').toggleClass('invisible');
+        $('.bufferArea').toggleClass('invisible');
+        $('#current').prop('id', '');
+        return false;
+    }
+    if (e.ctrlKey) {
+        if (e.key == 's') {
+            e.preventDefault();
+            $('#copyFile').click();
+            return false;
+        }
+        if (e.key == 'o') {
+            e.preventDefault();
+            $('#loadFile').click();
+            return false;
+        }
+    }
+});
+
 $('.input').on('keydown', function (e) {
     if (e.ctrlKey) {
         if (e.key == "Delete") {
@@ -60,16 +84,6 @@ $('.input').on('keydown', function (e) {
                 oneDown();
                 return false;
             }
-        }
-        if (e.key == 's') {
-            e.preventDefault();
-            $('#copyFile').click();
-            return false;
-        }
-        if (e.key == 'o') {
-            e.preventDefault();
-            $('#loadFile').click();
-            return false;
         }
         var text = getSelectionText();
         var bufferIndex = e.key;
