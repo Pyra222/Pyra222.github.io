@@ -31,7 +31,7 @@ function contextMenuAt(x, y) {
     if ($('#menu').length > 0) {
         return;
     }
-    var enabled = [true, true, true, false, false];
+    var enabled = [true, true, true, false, false, false];
     if ($(".entry").length <= 1) {
         enabled[0] = false;
     }
@@ -44,10 +44,11 @@ function contextMenuAt(x, y) {
     if ($('#current').hasClass('def')) {
         enabled[3] = true;
     }
-    if ($('#current').hasClass('eq')) {
-        if ($('#current').children('.mark').length) {
-            enabled[4] = true;
-        }
+    if ($('#current').children('.mark').length) {
+        enabled[4] = true;
+    }
+    if ($('#current').hasClass('underline')) {
+        enabled[5] = true;
     }
     var template = `
         <div id="menu">
@@ -57,6 +58,7 @@ function contextMenuAt(x, y) {
             <!--<li class="`+ (!enabled[2] ? 'disabled' : '') + `">W dół</li>-->
             <li>`+ (!enabled[3] ? 'Zaznacz definicję' : 'Odznacz definicję') + `</li>
             <li>`+ (!enabled[4] ? 'Oznacz równanie' : 'Usuń oznaczenie') + `</li>
+            <li>`+ (!enabled[5] ? 'Podkreśl' : 'Usuń podkreślenie') + `</li>
             </ul>
         </div>
     `
@@ -128,6 +130,9 @@ function updateFile() {
         if ($element.hasClass('def')) {
             file.nodes[file.nodes.length - 1].definition = true;
         }
+        if ($element.hasClass('underline')) {
+            file.nodes[file.nodes.length - 1].underline = true;
+        }
         if ($element.children('.mark').length) {
             file.nodes[file.nodes.length - 1].mark = $element.children('.mark').text();
         }
@@ -166,6 +171,10 @@ function loadFile(fileText) {
 
             if (element.definition) {
                 $node.addClass('def');
+            }
+
+            if (element.underline) {
+                $node.addClass('underline');
             }
 
             if (element.mark) {
