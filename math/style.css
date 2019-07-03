@@ -8,6 +8,10 @@
     display: none;
 }
 
+html, body {
+    background: rgb(20, 25, 20);
+}
+
 .disabled {
     pointer-events: none;
     user-select: none;
@@ -21,6 +25,7 @@
     width: 700px;
     margin: auto;
     /* background: url(paper.jpg); */
+    background: rgb(20, 25, 20);
 }
 
 hr {
@@ -48,7 +53,7 @@ hr {
 }
 
 .entry:hover {
-    background: rgb(245, 245, 245);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -66,11 +71,9 @@ hr {
     /* border-radius: 5px; */
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
-}
-
-.entry:first-of-type {
-    /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
+    color: rgb(255, 255, 255, 0.9);
 }
 
 .entry:last-of-type {
