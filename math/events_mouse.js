@@ -73,6 +73,10 @@ $(document).on('click', '#menu li', function () {
             $('#mark').val('');
             $('.input').focus();
         } break;
+        case "Podkreśl":
+        case "Usuń podkreślenie": {
+            $('#current').toggleClass('underline');
+        } break;
         case "Zaznacz definicję":
         case "Odznacz definicję": {
             $('#current').toggleClass('def');

@@ -1,57 +1,29 @@
 {
     "nodes": [
         {
-            "contents": "bb\"Zadania\"",
+            "contents": "bb\"Równania różniczkowe pierwszego rzędu\"",
             "type": "eq",
             "definition": true
         },
         {
-            "contents": "\\$bb\"1.\"$\\ Rozwiązać równania o zmiennych rozdzielonych:",
-            "type": "text"
-        },
-        {
-            "contents": "{:(\nbb\"a)\"\\ dy/dx=e^(2x+y),\nbb\"b)\"\\ xy'+y=y^2,\nbb\"c)\"\\ 2xsqrt(1-y^2)dx+ydy=0\n),(\nbb\"d)\"\\ x^2(y+1)^3dx=(1+x)^3y^3dy,\nbb\"e)\"\\ dy/dx=xy^2+x,\nbb\"f)\"\\ (y^2+xy^2)dx+(x^2-x^2y)dy=0\n):}",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "\\$bb\"a)\"$\\",
+            "contents": "\\$bb\"1.\"$\\ Równanie\\$bb\"o zmiennych rozdzielonych\"$\\.",
             "type": "text",
-            "definition": true
+            "underline": true
         },
         {
-            "contents": "",
+            "contents": "Sprowadzamy równanie do postaci",
+            "type": "text"
+        },
+        {
+            "contents": "dy/dx=f(x)/g(y)",
             "type": "eq"
         },
         {
-            "contents": "dy/dx=e^(2x+y)",
-            "type": "eq"
+            "contents": "Rozwiązaniem równania jest",
+            "type": "text"
         },
         {
-            "contents": "obrace(inte^-ydy)^(A)=obrace(inte^(2x)dx)^(B)",
-            "type": "eq"
-        },
-        {
-            "contents": "A=inte^-ydy=-e^-y+C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "B=inte^(2x)dx=1/2e^(2x)+C_2",
-            "type": "eq"
-        },
-        {
-            "contents": "-e^-y=1/2e^(2x)+C,\\qquadC=C_2-C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "e^-y=C-1/2e^(2x)",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y=-log(C-1/2e^(2x)))",
+            "contents": "int\\g(y)dy=int\\f(x)dx",
             "type": "eq"
         },
         {
@@ -59,438 +31,77 @@
             "type": "eq"
         },
         {
-            "contents": "\\$bb\"b)\"$\\",
+            "contents": "\\$bb\"2.\"$\\ Równanie\\$bb\"jednorodne\"$\\ (względem x i y).",
             "type": "text",
-            "definition": true
+            "underline": true
+        },
+        {
+            "contents": "Sprowadzamy równanie do postaci",
+            "type": "text"
+        },
+        {
+            "contents": "dy/dx=f(y/x)",
+            "type": "eq"
+        },
+        {
+            "contents": "Za pomocą podstawienia",
+            "type": "text"
+        },
+        {
+            "contents": "{:(u,=,y/x),(y,=,ux),(y',=,u'x+u):}",
+            "type": "eq"
+        },
+        {
+            "contents": "sprowadzamy równanie do równania o zmiennych rozdzielonych.",
+            "type": "text"
         },
         {
             "contents": "",
             "type": "eq"
         },
         {
-            "contents": "xdy/dx+y=y^2",
-            "type": "eq"
-        },
-        {
-            "contents": "obrace(int1/(y^2-y)dy)^(A)=obrace(int1/xdx)^(B)",
-            "type": "eq"
-        },
-        {
-            "contents": "Najpierw zajmujemy się całką (A):",
-            "type": "text"
-        },
-        {
-            "contents": "int1/(y^2-y)dy=int1/(y(y-1))dy",
-            "type": "eq",
-            "mark": "A"
-        },
-        {
-            "contents": "Rozkładamy czynnik podcałkowy na ułamki proste:",
-            "type": "text"
-        },
-        {
-            "contents": "1/(y(y-1))=a/y+b/(y-1)",
-            "type": "eq"
-        },
-        {
-            "contents": "1=ay-a+by=-a+(a+b)y",
-            "type": "eq"
-        },
-        {
-            "contents": "{(a,=,-1),(a+b,=,0):}\\qquad=>\\qquada=-1,\\ b=1",
-            "type": "eq"
-        },
-        {
-            "contents": "Wstawiamy obliczone wartości do wyrażenia podcałkowego i korzystamy z własności sumy całek:",
-            "type": "text"
-        },
-        {
-            "contents": "int1/(y(y-1))dy=-int1/ydy+int1/(y-1)dy=-ln|y|+ln|y-1|+ln|C_1|=color(blue)(ln|C_1(y-1)/(y)|)",
-            "type": "eq"
-        },
-        {
-            "contents": "Teraz zajmujemy się całką (B):",
-            "type": "text"
-        },
-        {
-            "contents": "int1/xdx=ln|x|+ln|C_2|=color(blue)(ln|C_2x|)",
-            "type": "eq",
-            "mark": "B"
-        },
-        {
-            "contents": "Wracamy do pierwotnego równania:",
-            "type": "text"
-        },
-        {
-            "contents": "ln|C_1(y-1)/(y)|=ln|C_2x|",
-            "type": "eq"
-        },
-        {
-            "contents": "C_1(y-1)/(y)=C_2x",
-            "type": "eq"
-        },
-        {
-            "contents": "1/y=1+Cx,\\qquadC=-(C_2)/(C_1)",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y=1/(1+Cx))",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "\\$bb\"c)\"$\\",
+            "contents": "\\$bb\"3.\"$\\ Równanie różniczkowe\\$bb\"liniowe\"$\\ rzędu pierwszego",
             "type": "text",
-            "definition": true
+            "underline": true
+        },
+        {
+            "contents": "Sprowadzamy równanie do postaci",
+            "type": "text"
+        },
+        {
+            "contents": "dy/dx=p(x)y+q(x)",
+            "type": "eq"
+        },
+        {
+            "contents": "Najpierw rozwiązujemy równanie \\$bb\"liniowe jednorodne\"$\\, czyli",
+            "type": "text"
+        },
+        {
+            "contents": "dy/dx+p(x)y=0",
+            "type": "eq"
+        },
+        {
+            "contents": "które jest równaniem o zmiennych rozdzielonych. Otrzymujemy rozwiązanie w postaci",
+            "type": "text"
+        },
+        {
+            "contents": "y(x)=Ce^(intp(x)dx)=Cy_1(x)",
+            "type": "eq"
+        },
+        {
+            "contents": "z pewną ustaloną funkcją \\$y_1(x)$\\. Następnie uzmienniamy stałą \\$C$\\, tzn. zakładamy, że rozwiązaniem równania niejednorodnego jest funkcja postaci",
+            "type": "text"
+        },
+        {
+            "contents": "y(x)=C(x)y_1(x)",
+            "type": "eq"
+        },
+        {
+            "contents": "z pewną nową funkcją niewiadomą \\$C(x)$\\. Podstawiamy \\$y(x)$\\ do rozwiązywanego równania i znajdujemy funckję \\$C(x)$\\.",
+            "type": "text"
         },
         {
             "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "2xsqrt(1-y^2)dx+ydy=0",
-            "type": "eq"
-        },
-        {
-            "contents": "2xsqrt(1-y^2)=-ydy/dx",
-            "type": "eq"
-        },
-        {
-            "contents": "obrace(2intxdx)^(A)=obrace(-inty/sqrt(1-y^2)dy)^(B)",
-            "type": "eq"
-        },
-        {
-            "contents": "Najpierw zajmujemy się całką (A):",
-            "type": "text"
-        },
-        {
-            "contents": "2intxdx=2*1/2x^2+C_1=color(blue)(x^2+C_1)",
-            "type": "eq",
-            "mark": "A"
-        },
-        {
-            "contents": "Teraz zajmujemy się całką (B) stosując podstawienie \\$u=1-y^2$\\:",
-            "type": "text"
-        },
-        {
-            "contents": "-inty/sqrt(1-y^2)dy=|(u=1-y^2),(du=-2ydy)|=1/2int1/sqrt(u)du",
-            "type": "eq",
-            "mark": "B"
-        },
-        {
-            "contents": "1/2int1/sqrt(u)du=2sqrt(u)+C_2=color(blue)(2sqrt(1-y^2)+C_2)",
-            "type": "eq"
-        },
-        {
-            "contents": "Wracamy do pierwotnego równania:",
-            "type": "text"
-        },
-        {
-            "contents": "x^2=2sqrt(1-y^2)+C,\\qquadC=C_2-C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "(x^2+C)/2=sqrt(1-y^2)",
-            "type": "eq"
-        },
-        {
-            "contents": "1-((x^2+C)/2)^2=y^2",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y=sqrt(1-((x^2+C)/2)^2))",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "\\$bb\"d)\"$\\",
-            "type": "text",
-            "definition": true
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "x^2(y+1)^3dx=(1+x)^3y^3dy",
-            "type": "eq"
-        },
-        {
-            "contents": "obrace(intx^2/(1+x)^3dx)^(A)=obrace(inty^3/(y+1)^3dy)^(B)",
-            "type": "eq"
-        },
-        {
-            "contents": "Najpierw zajmujemy się całką (A):",
-            "type": "text"
-        },
-        {
-            "contents": "intx^2/(1+x)^3dx",
-            "type": "eq",
-            "mark": "A"
-        },
-        {
-            "contents": "Rozkładamy wyrażenie podcałkowe na ułamki proste:",
-            "type": "text"
-        },
-        {
-            "contents": "x^2/(1+x)^3=a/(1+x)+b/(1+x)^2+c/(1+x)^3",
-            "type": "eq"
-        },
-        {
-            "contents": "x^2=a(1+x)^2+b(1+x)+c",
-            "type": "eq"
-        },
-        {
-            "contents": "x^2=a+2ax+ax^2+b+bx+c",
-            "type": "eq"
-        },
-        {
-            "contents": "x^2=ax^2+(2a+b)x+a+b+c",
-            "type": "eq"
-        },
-        {
-            "contents": "{(a,=,1),(2a+b,=,0),(a+b+c,=,0):}\\qquad=>\\qquada=1,\\ b=-2,\\ c=1",
-            "type": "eq"
-        },
-        {
-            "contents": "Wprowadzamy obliczone ułamki proste pod całkę i stosujemy zasadę sumowania całek:",
-            "type": "text"
-        },
-        {
-            "contents": "intx^2/(1+x)^3dx=int1/(1+x)dx-2int1/(1+x)^2dx+int1/(1+x)^3dx",
-            "type": "eq"
-        },
-        {
-            "contents": "Rozwiązujemy całki po kolei:",
-            "type": "text"
-        },
-        {
-            "contents": "int1/(1+x)dx=ln|1+x|+C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "-2int1/(1+x)^2dx=-2((1+x)^-1)/(-1)+C_2=2/(1+x)+C_2",
-            "type": "eq"
-        },
-        {
-            "contents": "int1/(1+x)^3dx=(1+x)^-2/-2=-1/(2(1+x)^2)+C_3",
-            "type": "eq"
-        },
-        {
-            "contents": "intx^2/(1+x)^3dx=ln|1+x|+2/(1+x)-1/(2(1+x)^2)+C,\\qquadC=C_1+C_2+C_3",
-            "type": "eq"
-        },
-        {
-            "contents": "Sprowadzamy dwa ostatnie wyniki do wspólnego mianownika i ostatecznie otrzymujemy:",
-            "type": "text"
-        },
-        {
-            "contents": "intx^2/(1+x)^3dx=color(blue)(ln|1+x|+C+(4x+3)/(2(1+x)^2))",
-            "type": "eq"
-        },
-        {
-            "contents": "Teraz zajmujemy się całką (B):",
-            "type": "text"
-        },
-        {
-            "contents": "inty^3/(y+1)^3dy",
-            "type": "eq",
-            "mark": "B"
-        },
-        {
-            "contents": "Ponieważ wyrażenie podcałkowe jest funkcją wymierną niewłaściwą, tj. wyrażenie w liczniku ma stopień równy bądź wyższy stopniowi wyrażenia w mianowniku, musimy najpierw wykonać dzielenie wyrażenia w liczniku przez wyrażenie w mianowniku:",
-            "type": "text"
-        },
-        {
-            "contents": "y^3\\ :\\ y^3+3y^2+3y+1=1+(3y^2+3y+1)/((y+1)^3)",
-            "type": "eq"
-        },
-        {
-            "contents": "Wstawiając wynik do (B) otrzymujemy:",
-            "type": "text"
-        },
-        {
-            "contents": "inty^3/(y+1)^3dy=intdy+int(3y^2+3y+1)/((y+1)^3)dy",
-            "type": "eq"
-        },
-        {
-            "contents": "Pierwsza całka jest trywialna:",
-            "type": "text"
-        },
-        {
-            "contents": "intdy=y+C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "W drugiej całce należy ponownie rozłożyć wyrażenie podcałkowe na ułamki proste:",
-            "type": "text"
-        },
-        {
-            "contents": "(3y^2+3y+1)/((y+1)^3)=a/(y+1)^3+b/(y+1)^2+c/(y+1)",
-            "type": "eq"
-        },
-        {
-            "contents": "3y^2+3y+1=a+b(y+1)+c(y+1)^2=a+by+b+cy^2+2cy+c",
-            "type": "eq"
-        },
-        {
-            "contents": "3y^2+3y+1=cy^2+(2c+b)y+a+b+c",
-            "type": "eq"
-        },
-        {
-            "contents": "{(c,=,3),(2c+b,=,3),(a+b+c,=,1):}\\qquad=>\\qquadc=3,\\ b=-3,\\ a=1",
-            "type": "eq"
-        },
-        {
-            "contents": "Wstawiamy obliczone wartości do wyrażenia podcałkowego i kożystamy z własności sumy całek:",
-            "type": "text"
-        },
-        {
-            "contents": "int(3y^2+3y+1)/((y+1)^3)dy=int1/(y+1)^3dy-3int1/(y+1)^2dy+3int1/(y+1)dy",
-            "type": "eq"
-        },
-        {
-            "contents": "Rozwiązujemy całki po kolei:",
-            "type": "text"
-        },
-        {
-            "contents": "int1/(y+1)^3dy=|(u=y+1),(du=dy)|=intu^-3du=-1/2u^-2+C_1=-1/(2(y+1)^2)+C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "-3int1/(y+1)^2dy=|j.w|=-3intu^-2du=3u^-1+C_2=3/(y+1)+C_2",
-            "type": "eq"
-        },
-        {
-            "contents": "3int1/(y+1)dy=3ln|y+1|+C_3",
-            "type": "eq"
-        },
-        {
-            "contents": "Składamy wszystkie części rozwiązania razem:",
-            "type": "text"
-        },
-        {
-            "contents": "inty^3/(y+1)^3dy=y-1/(2(y+1)^2)+3/(y+1)+3ln|y+1|+C",
-            "type": "eq"
-        },
-        {
-            "contents": "Upraszczamy formę:",
-            "type": "text"
-        },
-        {
-            "contents": "inty^3/(y+1)^3dy=color(blue)(y+(6y+3)/(2(y+1)^2)+3ln|y+1|+C)",
-            "type": "eq"
-        },
-        {
-            "contents": "Łącząc otrzymane wyniki dostajemy rozwiązanie:",
-            "type": "text"
-        },
-        {
-            "contents": "color(blue)(ln|1+x|+(4x+3)/(2(1+x)^2)=y+(6y+3)/(2(y+1)^2)+3ln|y+1|+C)",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "\\$bb\"e)\"$\\",
-            "type": "text",
-            "definition": true
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "dy/dx=xy^2+x",
-            "type": "eq"
-        },
-        {
-            "contents": "dy/dx=x(y^2+1)",
-            "type": "eq"
-        },
-        {
-            "contents": "int1/(y^2+1)dy=intxdx",
-            "type": "eq"
-        },
-        {
-            "contents": "arctan(y)=1/2x^2+C",
-            "type": "eq"
-        },
-        {
-            "contents": "color(blue)(y=tan(1/2x^2+C))",
-            "type": "eq"
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "\\$bb\"f)\"$\\",
-            "type": "text",
-            "definition": true
-        },
-        {
-            "contents": "",
-            "type": "eq"
-        },
-        {
-            "contents": "(y^2+xy^2)dx+(x^2-x^2y)dy=0",
-            "type": "eq"
-        },
-        {
-            "contents": "y^2(1+x)dx=x^2(y-1)dy",
-            "type": "eq"
-        },
-        {
-            "contents": "int(1+x)/(x^2)dx=int(y-1)/(y^2)dy",
-            "type": "eq"
-        },
-        {
-            "contents": "Korzystamy z zasady sumowania całek:",
-            "type": "text"
-        },
-        {
-            "contents": "int1/x^2dx+int1/xdx=int1/ydy-int1/y^2dy",
-            "type": "eq"
-        },
-        {
-            "contents": "Rozwiązujemy całki po lewej stronie:",
-            "type": "text"
-        },
-        {
-            "contents": "intx^-2dx=-1/x+C_1",
-            "type": "eq"
-        },
-        {
-            "contents": "int1/xdx=ln|x|+C_2",
-            "type": "eq"
-        },
-        {
-            "contents": "Rozwiązujemy całki po prawej stronie:",
-            "type": "text"
-        },
-        {
-            "contents": "int1/ydy=ln|y|+C_3",
-            "type": "eq"
-        },
-        {
-            "contents": "-int1/y^2dy=1/y+C_4",
-            "type": "eq"
-        },
-        {
-            "contents": "Łączymy rozwiązania:",
-            "type": "text"
-        },
-        {
-            "contents": "color(blue)(ln|x|-1/x=ln|y|+1/y)",
             "type": "eq"
         }
     ]
