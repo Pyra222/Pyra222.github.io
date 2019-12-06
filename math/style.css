@@ -8,6 +8,10 @@
     display: none;
 }
 
+body{
+    background: rgba(0,0,0,0.1);
+}
+
 .disabled {
     pointer-events: none;
     user-select: none;
@@ -16,11 +20,13 @@
 }
 
 .container {
-    padding-bottom: 200px;
-    padding-top: 40px;
-    width: 700px;
+    padding: 5px;
     margin: auto;
-    /* background: url(paper.jpg); */
+    margin-bottom: 160px;
+    margin-top: 40px;
+    width: 700px;
+    background: white;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
 }
 
 hr {
@@ -134,7 +140,7 @@ hr {
 
 .eq.def, .text.def {
     /* border-radius: 5px; */
-    box-shadow: 1px 0px 1px 1px rgb(134, 207, 236) inset, -1px 0px 1px 1px rgb(134, 207, 236) inset;
+    box-shadow: 0px 0px 1px 1px rgb(134, 207, 236) inset, 0px 0px 1px 1px rgb(134, 207, 236) inset;
     background: rgba(134, 207, 236, 0.1);
 }
 
@@ -153,7 +159,7 @@ hr {
     top: 0px;
     left: 0px;
     width: 100%;
-    background: white;
+    background: rgb(210, 221, 199);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
     z-index: 10;
     display: flex;
@@ -192,7 +198,6 @@ hr {
 
 .modal {
     display: none;
-    padding: 5px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -206,7 +211,8 @@ hr {
 
 #markEntry {
     float: left;
-    margin-left: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 .markEntry {
@@ -214,9 +220,10 @@ hr {
 }
 
 .markEntry #mark {
-    width: 100%;
+    width: calc(100% - 10px);
     height: 30px;
-    margin-bottom: 3px;
+    margin: 5px;
+    border: 1px solid gray;
 }
 
 #markEntryClose {
@@ -225,8 +232,8 @@ hr {
 
 .copyFile .btn, .loadFile .btn {
     margin: 0px;
-    margin-top: 5px;
-    margin-bottom: 1px;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
 
 #copyFile {
@@ -234,20 +241,43 @@ hr {
 }
 
 #loadFileClose, #copyFileClose, #markEntryClose {
-    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 16px;
+    height: 16px;
+    background: rgb(160, 44, 44);
+    color: white;
+    line-height: 16px;
+    text-align: center;
+    margin: 0px;
+    border: none;
+    font-weight: bold;
+    border-left: 1px solid black;
 }
 
+#loadFileClose:hover, #copyFileClose:hover, #markEntryClose:hover{
+    background: rgb(201, 20, 20);
+}
 #copyFileContents, #loadFileContents {
     resize: none;
-    width: 100%;
+    width: calc(100% - 10px);
     height: 150px;
     margin-left: 0px;
     border: 1px solid gray;
     padding: 5px;
+    margin: 5px;
 }
 
 .label {
-    padding-bottom: 5px;
+    padding: 3px;
+    padding-left: 5px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    height: 20px;
+    line-height: 20px;
+    user-select: none;
+    background: rgb(210, 221, 199);
+    border-bottom: 1px solid black;
 }
 
 .bufferArea .btn {
