@@ -145,7 +145,8 @@ hr {
 .eq#current {
     /* box-shadow: 2px 0px 1px -1px greenyellow inset, -2px 0px 1px -1px greenyellow inset; */
     /* border-radius: 5px; */
-    background: rgba(98, 231, 98, 0.1);
+    /* background: rgba(98, 231, 98, 0.1); */
+    box-shadow: 0px 0px 3px rgba(38, 95, 38, 0.7) inset;
 }
 
 .text#current {
