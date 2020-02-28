@@ -218,6 +218,24 @@ function renderText(text) {
     return ready;
 }
 
+function addRow() {
+    $("#current").prop('id', 'last');
+
+    var newNode = $('<div class="entry eq" id="current">``</div>');
+    $('#last').after(newNode);
+    $('#last').prop('id', '');
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
+    var math = MathJax.Hub.getAllJax("current")[0];
+    MathJax.Hub.Queue(["Text", math, ""]);
+
+    $(this).val('');
+
+    fileUpdated(false);
+    currentEntry = $('#current');
+    updateFile();
+    $('#current').get(0).scrollIntoView({ block: "center" });
+}
+
 function init() {
     buffer = ["", "", "", ""];
     file = { nodes: [] }

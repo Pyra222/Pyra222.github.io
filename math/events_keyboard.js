@@ -47,21 +47,7 @@ $('.input').on('keydown', function (e) {
             return false;
         }
         if (e.key == "Enter") {
-            $("#current").prop('id', 'last');
-
-            var newNode = $('<div class="entry eq" id="current">``</div>');
-            $('#last').after(newNode);
-            $('#last').prop('id', '');
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('current')]);
-            var math = MathJax.Hub.getAllJax("current")[0];
-            MathJax.Hub.Queue(["Text", math, ""]);
-
-            $(this).val('');
-
-            fileUpdated(false);
-            currentEntry = $('#current');
-            updateFile();
-            $('#current').get(0).scrollIntoView({ block: "center" });
+            addRow();
             return;
         }
         if ($('#current').length) {

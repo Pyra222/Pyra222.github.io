@@ -160,6 +160,10 @@ $(document).on('click', '#new', function () {
     }
 });
 
+$(document).on('click', '#addRow', function () {
+    addRow();
+});
+
 $('#overlay').on('click', function (e) {
     return false;
 });
