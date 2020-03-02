@@ -5,6 +5,19 @@ var file = {
 }
 var currentEntry = null;
 
+var insertArray = {
+    insertSum3:      'sum_(i=1)^3',
+    insertSum4:      'sum_(mu=0)^3',
+    insertVector3:   '[,,]',
+    insertVector4:   '[,,,]',
+    insertCovector3: '[(),(),()]',
+    insertCovector4: '[(),(),(),()]',
+    insertArray3:    '[(,,),(,,),(,,)]',
+    insertArray4:    '[(,,,),(,,,),(,,,),(,,,)]',
+    insertFrac:      '()/()',
+    insertPartial:   '(del)/(delx^i)'
+}
+
 function oneUp() {
     if ($('#current').prev().length >= 1) {
         $('#current').prop('id', 'last');
@@ -232,8 +245,20 @@ function addRow() {
 
     fileUpdated(false);
     currentEntry = $('#current');
+    $(".input").val('');
     updateFile();
     $('#current').get(0).scrollIntoView({ block: "center" });
+}
+
+function moveCursorToEnd(el) {
+    if (typeof el.selectionStart == "number") {
+        el.selectionStart = el.selectionEnd = el.value.length;
+    } else if (typeof el.createTextRange != "undefined") {
+        el.focus();
+        var range = el.createTextRange();
+        range.collapse(false);
+        range.select();
+    }
 }
 
 function init() {

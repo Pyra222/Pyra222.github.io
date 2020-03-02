@@ -2,11 +2,43 @@
 
 <head>
     <title>Math</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Markazi+Text&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML'></script>
+    <script type="text/x-mathjax-config" src="jax.config">
+        MathJax.Hub.Config({
+            "fast-preview": {
+                disabled:false
+            },
+            jax: ["input/AsciiMath", "output/HTML-CSS"],
+            messageStyle: "none",
+            /*showMathMenu: false,*/
+            asciimath2jax: {
+                delimiters: [['`','`']],
+            },
+            SVG: {
+                font: "Latin-Modern",
+                linebreaks: {
+                    automatic: true,
+                    width: "container"
+                } 
+            },
+            "HTML-CSS": {
+                webFont: "Latin-Modern",
+                linebreaks: {
+                    automatic: true,
+                    width: "container"
+                } 
+            }
+        });
+        MathJax.Hub.processSectionDelay = 0;
+    </script>
 </head>
 
 <body>
@@ -39,42 +71,22 @@
             <div class="btn" id="new">Nowy</div>
         </div>
         <div class="eq_area">
-            <div class="btn action" id="addRow">+</div>
+            <div class="btn action" id="addRow"         >+</div>
+            <div class="btn action insert" id="insertSum3"     >∑³</div>
+            <div class="btn action insert" id="insertSum4"     >∑⁴</div>
+            <div class="btn action insert" id="insertVector3"  >[…]³</div>
+            <div class="btn action insert" id="insertVector4"  >[…]⁴</div>
+            <div class="btn action insert" id="insertCovector3">[⋮]₃</div>
+            <div class="btn action insert" id="insertCovector4">[⋮]₄</div>
+            <div class="btn action insert" id="insertArray3"   >[⋱]³ˣ³</div>
+            <div class="btn action insert" id="insertArray4"   >[⋱]⁴ˣ⁴</div>
+            <div class="btn action insert" id="insertFrac"     >⁽ ⁾⁄₍ ₎</div>
+            <div class="btn action insert" id="insertPartial"  >∂ ⁄ ∂</div>
             <div class="entry eq" id="current">``</div>
         </div>
         <textarea class="input"></textarea>
     </div>
     <div id="overlay"></div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML'></script>
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            "fast-preview": {
-                disabled:false
-            },
-            jax: ["input/AsciiMath", "output/HTML-CSS"],
-            messageStyle: "none",
-            /*showMathMenu: false,*/
-            asciimath2jax: {
-                delimiters: [['`','`']],
-            },
-            SVG: {
-                font: "Latin-Modern",
-                linebreaks: {
-                    automatic: true,
-                    width: "container"
-                } 
-            },
-            "HTML-CSS": {
-                webFont: "Latin-Modern",
-                linebreaks: {
-                    automatic: true,
-                    width: "container"
-                } 
-            }
-        });
-        MathJax.Hub.processSectionDelay = 0;
-    </script>
     <script src="script.js"></script>
     <script src="events_mouse.js"></script>
     <script src="events_keyboard.js"></script>

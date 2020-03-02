@@ -27,7 +27,7 @@ body{
 .container {
     /* padding: 5px; */
     margin: auto;
-    margin-bottom: 160px;
+    margin-bottom: 200px;
     margin-top: 40px;
     max-width: 700px;
     background: white;
@@ -356,6 +356,47 @@ hr {
     bottom: -40px;
     right: 0px;
 }
+#insertSum3{
+    bottom: -40px;
+    left: 0px;
+}     
+#insertSum4{
+    bottom: -40px;
+    left: 40px;
+}     
+#insertVector3{
+    bottom: -40px;
+    left: 80px;
+}  
+#insertVector4{
+    bottom: -40px;
+    left: 130px;
+}  
+#insertCovector3{
+    bottom: -40px;
+    left: 180px;
+}
+#insertCovector4{
+    bottom: -40px;
+    left: 230px;
+}
+#insertArray3{
+    bottom: -40px;
+    left: 280px;
+}   
+#insertArray4{
+    bottom: -40px;
+    left: 340px;
+}   
+#insertFrac{
+    bottom: -40px;
+    left: 400px;
+}   
+
+#insertPartial{
+    bottom: -40px;
+    left: 445px;
+}   
 
 .saveIcon {
     border-radius: 2px;
