@@ -166,7 +166,7 @@ $(document).on('click', '#addRow', function () {
 
 $(document).on('click', '.insert', function (e) {
     $('.input').focus();
-    insertAtCursor($('.input')[0], insertArray[e.target.id]);
+    insertAtCursor($('.input')[0], insertArray.find(el => el.id == e.target.id).insert);
     var text = $(".input").val();
     var math = MathJax.Hub.getAllJax("current")[0];
     MathJax.Hub.Queue(["Text", math, text]);

@@ -5,18 +5,18 @@ var file = {
 }
 var currentEntry = null;
 
-var insertArray = {
-    insertSum3:      'sum_(i=1)^3',
-    insertSum4:      'sum_(mu=0)^3',
-    insertVector3:   '[,,]',
-    insertVector4:   '[,,,]',
-    insertCovector3: '[(),(),()]',
-    insertCovector4: '[(),(),(),()]',
-    insertArray3:    '[(,,),(,,),(,,)]',
-    insertArray4:    '[(,,,),(,,,),(,,,),(,,,)]',
-    insertFrac:      '()/()',
-    insertPartial:   '(del)/(delx^i)'
-}
+var insertArray = [
+    {
+        id: 'lambda',
+        symbol: 'Λ',
+        insert: 'Lambda_(.)^(.)'
+    },
+    {
+        id: 'equation_set',
+        symbol: '{:',
+        insert: '{(),():}'
+    },
+];
 
 function oneUp() {
     if ($('#current').prev().length >= 1) {
@@ -261,6 +261,13 @@ function moveCursorToEnd(el) {
     }
 }
 
+function generateToolbar() {
+    insertArray.forEach(el => {
+        var $newNode = $('<div class="btn action insert" id="'+el.id+'">'+el.symbol+'</div>');
+        $('.actionArea').append($newNode);
+    });
+}
+
 function init() {
     buffer = ["", "", "", ""];
     file = { nodes: [] }
@@ -274,5 +281,6 @@ function init() {
 // start
 (function () {
     updateFile();
+    generateToolbar();
     $('.input').focus();
 })();
