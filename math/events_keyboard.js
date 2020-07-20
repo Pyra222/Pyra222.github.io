@@ -19,6 +19,11 @@ $(document).on('keydown', function (e) {
             $('#loadFile').click();
             return false;
         }
+        if (e.key == 'e') {
+            e.preventDefault();
+            $('#insertEquation').click();
+            return false;
+        }
     }
 });
 

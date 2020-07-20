@@ -250,9 +250,9 @@ function addRow() {
     $('#current').get(0).scrollIntoView({ block: "center" });
 }
 
-function moveCursorToEnd(el) {
+function moveCursorToEnd(el, pos = 0) {
     if (typeof el.selectionStart == "number") {
-        el.selectionStart = el.selectionEnd = el.value.length;
+        el.selectionStart = el.selectionEnd = el.value.length - pos;
     } else if (typeof el.createTextRange != "undefined") {
         el.focus();
         var range = el.createTextRange();
