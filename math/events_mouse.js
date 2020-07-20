@@ -102,7 +102,9 @@ $(document).on('click', '#copyFile', function (e) {
     updateFile();
     fileUpdated(true);
     var $contents = $('#copyFileContents');
-    var fileText = JSON.stringify(file);
+    var fileText = JSON.stringify(file)
+        .replace(/\</g,'&lt')
+        .replace(/\>/g,'&gt');
     $contents.val(fileText);
 });
 
