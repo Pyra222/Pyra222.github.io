@@ -1,0 +1,651 @@
+title Key castle
+author Pyra222
+homepage www.puzzlescript.net
+
+sprite_size 8
+case_sensitive
+verbose_logging
+
+========
+OBJECTS
+========
+
+Slab 
+#333 #222
+00100010
+00011100
+00100010
+11000001
+00100010
+00011100
+00100010
+11000001
+
+Board
+#372305 #53380a
+00000000
+01111110
+01111110
+01100110
+01100110
+01111110
+01111110
+00000000
+
+
+
+Wall
+#555 #666
+00000000
+01110111
+00000000
+11011101
+00000000
+10111011
+00000000
+11101110
+
+Wizard 
+#0b2e03 #114705 #236307 #f5ee1b
+...000..
+..01220.
+.000000.
+.00330..
+010000..
+0122220.
+0112210.
+0000000.
+
+Wizard_Key
+#0b2e03 #114705 #236307 #f5ee1b
+...000..
+..01220.
+.000000.
+.00330..
+010000..
+0122230.
+0112210.
+0000000.
+
+Wizard_Dying
+#0b2e0377 #11470577 #23630777 #f5ee1b77
+...000..
+..01220.
+.000000.
+.00330..
+010000..
+0122220.
+0112210.
+0000000.
+
+Crate 
+#633f09 #865b11 #a36f15 #f5ee1b
+.000000.
+01222210
+01222210
+00000000
+01233210
+01222210
+01222210
+00000000
+
+Metal_Crate
+#222 #555 #888 #f5ee1b
+.000000.
+01222210
+01222210
+00000000
+01233210
+01222210
+01222210
+00000000
+
+Crate_Moving
+#633f0977 #865b1177 #a36f1577 #f5ee1b77
+.000000.
+01222210
+01222210
+00000000
+01233210
+01222210
+01222210
+00000000
+
+Submerged 
+#43636b #567270 #667d72 #93c375
+00000000
+01222210
+01222210
+00000000
+01233210
+01222210
+01222210
+00000000
+
+Water_1
+#154fc0 #1264b2 #1883ea
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+11111111
+22222222
+
+Water_2
+#154fc0 #1264b2 #1883ea
+21000000
+21000000
+21000000
+21000000
+21000000
+21000000
+21000000
+21000000
+
+Water_3
+#154fc0 #1264b2 #1883ea
+22222222
+11111111
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+
+Water_4
+#154fc0 #1264b2 #1883ea
+00000012
+00000012
+00000012
+00000012
+00000012
+00000012
+00000012
+00000012
+
+Water_5
+#154fc0 #1264b2 #1883ea
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+
+Water_6
+#154fc0 #1264b2 #1883ea
+2222222.
+11111112
+00000012
+00000012
+00000012
+00000012
+00000012
+00000012
+
+Water_7
+#154fc0 #1264b2 #1883ea
+00000012
+00000012
+00000012
+00000012
+00000012
+00000012
+11111112
+2222222.
+
+Water_8
+#154fc0 #1264b2 #1883ea
+21000000
+21000000
+21000000
+21000000
+21000000
+21000000
+21111111
+.2222222
+
+Water_9
+#154fc0 #1264b2 #1883ea
+.2222222
+21111111
+21000000
+21000000
+21000000
+21000000
+21000000
+21000000
+
+Spikes
+#888 #555 #222
+01111110
+12222221
+12022021
+12222221
+12222221
+12022021
+12222221
+01111110
+
+Exit_Open
+#888 #633f09 #222 #a36f15 #f5ee1b
+..0000..
+.012220.
+01112220
+01312220
+01312220
+01412220
+01312220
+01312220
+
+Exit_Closed
+#888 #633f09 #a36f15 #f5ee1b
+..0000..
+.011110.
+01122110
+01222210
+01222210
+01222310
+01222210
+01222210
+
+Key
+#c89c1f #f5ee1b
+........
+........
+.....00.
+11110..0
+1.1.0..0
+.....00.
+........
+........
+
+Bars
+#444 #666
+00000000
+0.1..1.0
+01011010
+0.1..1.0
+0.1..1.0
+01011010
+0.1..1.0
+00000000
+
+Gate
+#c89c1f #f5ee1b
+..0000..
+.01..10.
+0.1..1.0
+0.1..1.0
+01011010
+0.1..1.0
+0.1..1.0
+00000000
+
+Gate_Open
+#c89c1f #f5ee1b
+.00.....
+0.10....
+0.10....
+0.10....
+0100....
+0.10....
+0.10....
+0000....
+
+Button
+#f5ee1b #a36f15 #c89c1f
+........
+........
+........
+...00...
+..0000..
+.120021.
+..1111..
+........
+
+Light
+#f5ee1b77 #f5ee1baa #f5ee1b
+........
+...00...
+..0110..
+.012210.
+.012210.
+..0110..
+...00...
+........
+
+
+
+Marker
+#d0303033 #a5262633
+00....00
+010..010
+.010010.
+..0110..
+..0110..
+.010010.
+010..010
+00....00
+
+Void
+#222 black
+01010101
+10101010
+01010101
+10101010
+01010101
+10101010
+01010101
+10101010
+
+Invisible_Wall
+transparent
+
+=======
+LEGEND
+=======
+
+. = Slab
+, = Board
+# = Wall
+W = Wizard
+w = Wizard_Dying
+K = Wizard_Key
+* = Crate
++ = Metal_Crate
+% = Crate_Moving
+o = Submerged
+x = Spikes
+H = Bars
+! = Marker
+B = Button
+G = Gate
+g = Gate_Open
+e = Exit_Closed
+E = Exit_Open
+L = Light
+k = Key
+1 = Water_1
+2 = Water_2
+3 = Water_3
+4 = Water_4
+5 = Water_5
+6 = Water_6
+7 = Water_7
+8 = Water_8
+9 = Water_9
+0 = Void
+? = Invisible_Wall
+
+background = Slab or Board
+player = Wizard or Wizard_Key or Wizard_Dying
+
+Water = Water_1 or Water_2 or Water_3 or Water_4 or Water_5 or Water_6 or Water_7 or Water_8 or Water_9
+Block = player or Crate or Crate_Moving or Metal_Crate or Wall
+Exit = Exit_Open or Exit_Closed
+Weighted = Crate or Metal_Crate or Crate_Moving or player
+=======
+SOUNDS
+=======
+
+player move 26466107
+Crate move 74007107
+Metal_Crate move 33947107
+Crate_Moving move 43923909
+sfx0 68965103
+sfx1 80451101
+sfx2 5780900
+sfx3 43923909
+sfx4 75477101
+sfx5 59297702
+sfx6 56033501
+
+================
+COLLISIONLAYERS
+================
+
+background
+Marker
+Submerged, Water, Spikes, Exit, Void, Button, Gate_Open
+Block, Bars, Invisible_Wall, Gate, Key
+Light
+
+======
+RULES     
+======     
+
+[ Wizard_Dying ] -> [ ]
+
+
+[ > player | Invisible_Wall ] -> [ player | Invisible_Wall ] message There is no turning back now. 
+[ > player | Crate ] -> [ > player | > Crate ] 
+[ > player | Metal_Crate ] -> [ > player | > Metal_Crate ] 
+[ > player | Key ][Exit_Closed] -> [ > Wizard_Key | ][Exit_Open] sfx2
+[ > player | Water ] -> [ | Wizard_Dying Water ] sfx0 again
+[ > player | Void ] -> [ | Wizard_Dying Void ] sfx4 again
+[ > Crate  | Water ] -> [ | Submerged ] sfx0
+[ > Metal_Crate  | Water ] -> [ | Water ] sfx0
+[ > Crate  | Void ] -> [ | Void ] sfx4
+[ > Metal_Crate  | Void ] -> [ | Void ] sfx4
+
+late [ no Weighted Button ][ no Block Gate_Open] -> [no Weighted Button][Gate]
+late [ Weighted Button ][Gate] -> [ Weighted Button ][Gate_Open]
+
+[ > Weighted | Button ] -> sfx6
+[ < Weighted Button ] -> sfx6
+
+[ action player | no Block | Crate ] -> [ action player | no Block | Crate_Moving ] sfx3 again
+[ action player | no Block | no Block | Crate ] -> [ action player | no Block | no Block | Crate_Moving ] sfx3 again
+[ action player | no Block | no Block | no Block | Crate ] -> [ action player | no Block | no Block | no Block | Crate_Moving ] sfx3 again
+[ Crate_Moving | ... | player ] -> [ > Crate_Moving | ... | player ] again
+[ > Crate_Moving | Block ] -> [ Crate | Block ] again
+[ > Crate_Moving | Bars ] -> [ Crate | Bars ] again
+[ > Crate_Moving | Gate ] -> [ Crate | Gate ] again
+[ > Crate_Moving | Key ] -> [ Crate | Key ] again
+[ > Crate_Moving | Spikes ] -> [ | Crate Spikes ] again
+
+[ > Crate | Spikes ] -> [ | Crate Spikes ] sfx1
+
+[ Crate Water ] -> [ Submerged ] sfx0
+[ Crate Void ] -> [ Void ] sfx4
+
+==============
+WINCONDITIONS
+==============
+
+some player on Exit_Open
+
+=======     
+LEVELS
+=======
+
+message Playground
+
+####################
+#................**#
+#..936...xxx.+++.**#
+#..817...xxx.......#
+#..................#
+#.+.G.*.B.G........#
+#.+.W.*.......,.,.,#
+#.+.B.*..HHH.,.,.,.#
+#......k......,.,.,#
+#..000...H...,.,.,.#
+#..0,0...H.H..,.,.,#
+#e...........,.,.,.#
+####################
+
+message Welcome to the castle.
+
+##H##H###
+#111111##
+?.......#
+?W.....E#
+?.......#
+#333333##
+##H##H###
+
+message Find a key to ascend to the next level.
+
+########
+##.###e#
+##...#.#
+HW.#.#.#
+####.#.#
+#k.....#
+########
+
+message Wooden crates float on water.
+
+########
+#..24.e#
+#.*24..#
+HW.24..#
+#.*24..#
+#..24.k#
+########
+
+message Metal crates DO NOT float on water.
+
+########
+#..24.e#
+#.+87.##
+HW...+.#
+#.+96.##
+#..24.k#
+########
+
+message Press action to pull wooden crates WITH MAGIC!
+
+###############
+#11111111115###
+H..........2.e#
+HW......!..2*.#
+H..........2.k#
+#33333333335###
+###############
+
+#######
+#W....#
+##H6..#
+#*87H.#
+##**###
+#e...k#
+#######
+
+########
+#..e#87#
+#W..H.*#
+#...#96#
+#...#2##
+#....8k#
+#.....##
+########
+
+###########
+#..W.....e#
+#**..*....#
+33333333333
+11111111111
+#....#.####
+#000.H..*k#
+###########
+
+message Metal crates are too heavy to pull WITH MAGIC...
+
+###############
+#11111111115###
+H..........2*e#
+HW......!..2+.#
+H..........2.k#
+#33333333335###
+###############
+
+##########
+#.++.k..+#
+#+++.+.+.#
+#W.+.+.+e#
+#.+.+.+.+#
+#.++..+.+#
+##########
+
+message Buttons open gates
+
+#########
+#W....#k#
+#.*.*.#G#
+##..#...#
+#B55+.#e#
+#########
+
+message Sometimes things gets stuck.
+
+#########
+#####..##
+#k4W....#
+##533x6.#
+#e255x4.#
+#.2*xx4.#
+#.81117.#
+#.......#
+#########
+
+message Sometimes you need to think ahead.
+
+#########
+###W..#k#
+###.#.#.#
+###5#.5*#
+###*#H###
+#...#..e#
+#....*###
+#########
+
+message Go now. Find it.
+
+message FLOOR 1 ROOM 1
+
+#########
+#00HkH00#
+#00#3#00#
+#00#1#00#
+#0W,+0*0#
+#000,,,0#
+#000,0,0#
+#0e,*,,0#
+#0000000#
+#########
+
+message FLOOR 1 ROOM 2
+
+#######
+#...###
+#...2k#
+##G####
+##.W###
+##B.###
+##*...#
+##.B*.#
+##..###
+##e.###
+#######
+
+message FLOOR 1 ROOM 3
+
+##############
+#00,,....*..k#
+#00,,00000000#
+#00,,00000000#
+HW,,,,,,,,,Ge#
+H,,,,,,,,,,###
+#00,,000H0000#
+#00,,000B0000#
+#00,,........#
+##############
+
