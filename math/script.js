@@ -1,22 +1,11 @@
-//            1  2  3  4
+//            1   2   3   4
 var buffer = ['', '', '', '']
 var file = {
     nodes: []
 }
 var currentEntry = null;
 
-var insertArray = [
-    {
-        id: 'lambda',
-        symbol: 'Λ',
-        insert: 'Lambda_(.)^(.)'
-    },
-    {
-        id: 'equation_set',
-        symbol: '{:',
-        insert: '{(),():}'
-    },
-];
+var insertArray = require("action_bar.json");
 
 function oneUp() {
     if ($('#current').prev().length >= 1) {

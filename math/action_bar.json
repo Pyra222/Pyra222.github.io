@@ -1,0 +1,22 @@
+[
+    {
+        "id": "lambda",
+        "symbol": "Λ",
+        "insert": "Lambda_(.)^(.)"
+    },
+    {
+        "id": "equation_set",
+        "symbol": "{:",
+        "insert": "{(),():}"
+    },
+    {
+        "id": "hard_gap",
+        "symbol": " ",
+        "insert": "\\quad\\quad"
+    },
+    {
+        "id": "bold",
+        "symbol": "bb",
+        "insert": "bb\"\""
+    }
+]
