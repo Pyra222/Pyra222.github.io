@@ -5,6 +5,8 @@ $(document).on('click', '.entry', function () {
     var text = "";
     if ($('#current').hasClass('text')) {
         text = '#' + $(this).data('input');
+    } else if ($('#current').hasClass('image')) {
+        text = '!!' + $(this).data('input');
     } else {
         text = $(this).data('input');
     }
@@ -33,36 +35,6 @@ $(document).on('click', '#menu li', function () {
                 currentEntry = next;
             }
         } break;
-        // case "W górę": {
-        //     if ($('#current').prev().length >= 1) {
-        //         var temp = $('#current').html();
-        //         var tempData = $('#current').data('input');
-        //         $('#current').html($('#current').prev().html());
-        //         $('#current').data('input', $('#current').prev().data('input'));
-        //         if ($('#current').hasClass('def')) {
-        //             $('#current').prev().addClass('def');
-        //             $('#current').removeClass('def');
-        //         }
-        //         $('#current').prev().html(temp);
-        //         $('#current').prev().data('input', tempData);
-        //         oneUp();
-        //     }
-        // } break;
-        // case "W dół": {
-        //     if ($('#current').next().length >= 1) {
-        //         var temp = $('#current').html();
-        //         var tempData = $('#current').data('input');
-        //         $('#current').html($('#current').next().html());
-        //         $('#current').data('input', $('#current').next().data('input'));
-        //         if ($('#current').hasClass('def')) {
-        //             $('#current').next().addClass('def');
-        //             $('#current').removeClass('def');
-        //         }
-        //         $('#current').next().html(temp);
-        //         $('#current').next().data('input', tempData);
-        //         oneDown();
-        //     }
-        // } break;
         case "Oznacz równanie": {
             $(".markEntry").show();
             $("#overlay").show();
@@ -81,6 +53,10 @@ $(document).on('click', '#menu li', function () {
         case "Odznacz definicję": {
             $('#current').toggleClass('def');
         } break;
+        case "Dodaj obraz": {
+            $('#imgupload').trigger('click');
+            $('.input').focus();
+        }
     }
 });
 
@@ -191,3 +167,22 @@ $(document).on('contextmenu', '.entry', function (e) {
     currentEntry = $(this);
     contextMenuAt(e.pageX, e.pageY);
 });
+
+$(document).on('change','#imgupload', function (e) {
+    e.preventDefault();
+    var reader = new FileReader();
+    reader.readAsDataURL($('#imgupload').prop('files')[0]);
+    reader.onload = function () {
+        $('#current').html(renderImage(reader.result));
+        $('#current').addClass('image');
+        $('#current').removeClass('eq');
+        $('#current').data('input', reader.result);
+
+        $('#imgupload').val('');
+        $('#imgupload').prop('files') = [];
+        $('.input').val('!!'+reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+})

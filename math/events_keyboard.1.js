@@ -76,7 +76,11 @@ $(".input").on('keyup', function (e) {
         if ($('#current').hasClass('text') && text == '') {
             $('#current').text('');
         };
-        if (text.startsWith('#')) {
+        if (text.startsWith('!!')) {
+            $('#current').removeClass('eq');
+            $('#current').addClass('image');
+        }
+        else if (text.startsWith('#')) {
             $('#current').removeClass('eq');
             $('#current').addClass('text');
             text = text.substr(1);
@@ -99,6 +103,7 @@ $(".input").on('keyup', function (e) {
             MathJax.Hub.Queue(["Text", math, new_text]);
         } else {
             $('#current').removeClass('text');
+            $('#current').removeClass('image');
             $('#current').addClass('eq');
             if ($('#current').text() == "") {
                 $('#current').text('``');

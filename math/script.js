@@ -8,7 +8,7 @@ var currentEntry = null;
 var insertArray = require("action_bar.json");
 
 function oneUp() {
-    if ($('#current').prev().length >= 1) {
+    if ($('#current').prev().length >= 1 && !$('#current').prev().hasClass('actionArea')) {
         $('#current').prop('id', 'last');
         $('#last').prev().prop('id', 'current');
         $('#last').prop('id', '');
@@ -33,7 +33,7 @@ function contextMenuAt(x, y) {
     if ($('#menu').length > 0) {
         return;
     }
-    var enabled = [true, true, true, false, false, false];
+    var enabled = [true, true, true, false, false, false, true];
     if ($(".entry").length <= 1) {
         enabled[0] = false;
     }
@@ -52,6 +52,9 @@ function contextMenuAt(x, y) {
     if ($('#current').hasClass('underline')) {
         enabled[5] = true;
     }
+    if ($('#current').hasClass('image')) {
+        enabled[6] = true;
+    }
     var template = `
         <div id="menu">
             <ul>
@@ -61,6 +64,7 @@ function contextMenuAt(x, y) {
             <li>`+ (!enabled[3] ? 'Zaznacz definicję' : 'Odznacz definicję') + `</li>
             <li>`+ (!enabled[4] ? 'Oznacz równanie' : 'Usuń oznaczenie') + `</li>
             <li>`+ (!enabled[5] ? 'Podkreśl' : 'Usuń podkreślenie') + `</li>
+            <li class="`+ (!enabled[6] ? 'disabled' : '') + `">Dodaj obraz</li>
             </ul>
         </div>
     `
@@ -128,6 +132,9 @@ function updateFile() {
         } else if ($element.hasClass('text')) {
             var text = $element.data('input');
             file.nodes.push({ contents: text, type: 'text' })
+        } else if ($element.hasClass('image')) {
+            var src = $element.data('input');
+            file.nodes.push({ contents: src, type: 'image' })
         }
         if ($element.hasClass('def')) {
             file.nodes[file.nodes.length - 1].definition = true;
@@ -165,6 +172,9 @@ function loadFile(fileText) {
             $node = $('<div class="entry ' + element.type + '"></div>');
             if (element.type == 'text') {
                 $node.html('`' + renderText(element.contents) + '`');
+                $node.data('input', element.contents);
+            } else if (element.type == 'image') {
+                $node.html(renderImage(element.contents));
                 $node.data('input', element.contents);
             } else {
                 $node.html('`' + element.contents + '`');
@@ -218,6 +228,10 @@ function renderText(text) {
         }
     }
     return ready;
+}
+
+function renderImage(src) {
+    return `<img class="img" src="`+src+`"/>`;
 }
 
 function addRow() {

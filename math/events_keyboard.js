@@ -101,7 +101,11 @@ $('.input').on('keydown', function (e) {
 
 $(".input").on('keyup', function (e) {
     var text = $(this).val();
-    if (text.startsWith('#')) {
+    if (text.startsWith('!!')) {
+        $('#current').removeClass('eq');
+        $('#current').addClass('image');
+    }
+    else if (text.startsWith('#')) {
         text = text.substr(1);
         $('#current').removeClass('eq');
         $('#current').addClass('text');
@@ -117,6 +121,7 @@ $(".input").on('keyup', function (e) {
         $('#current').data('input', text);
     } else {
         $('#current').removeClass('text');
+        $('#current').removeClass('image');
         $('#current').addClass('eq');
         if ($('#current').text() == "") {
             $('#current').text('``');
