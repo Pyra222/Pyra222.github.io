@@ -5,8 +5,6 @@ var file = {
 }
 var currentEntry = null;
 
-var insertArray = require("action_bar.json");
-
 function oneUp() {
     if ($('#current').prev().length >= 1 && !$('#current').prev().hasClass('actionArea')) {
         $('#current').prop('id', 'last');
@@ -33,7 +31,7 @@ function contextMenuAt(x, y) {
     if ($('#menu').length > 0) {
         return;
     }
-    var enabled = [true, true, true, false, false, false, true];
+    var enabled = [true, true, true, false, false, false, false, true];
     if ($(".entry").length <= 1) {
         enabled[0] = false;
     }
@@ -52,8 +50,11 @@ function contextMenuAt(x, y) {
     if ($('#current').hasClass('underline')) {
         enabled[5] = true;
     }
-    if ($('#current').hasClass('image')) {
+    if ($('#current').hasClass('note')) {
         enabled[6] = true;
+    }
+    if ($('#current').hasClass('image')) {
+        enabled[7] = true;
     }
     var template = `
         <div id="menu">
@@ -64,7 +65,8 @@ function contextMenuAt(x, y) {
             <li>`+ (!enabled[3] ? 'Zaznacz definicję' : 'Odznacz definicję') + `</li>
             <li>`+ (!enabled[4] ? 'Oznacz równanie' : 'Usuń oznaczenie') + `</li>
             <li>`+ (!enabled[5] ? 'Podkreśl' : 'Usuń podkreślenie') + `</li>
-            <li class="`+ (!enabled[6] ? 'disabled' : '') + `">Dodaj obraz</li>
+            <li>`+ (!enabled[6] ? 'Zaznacz notatkę' : 'Odznacz notatkę') + `</li>
+            <li class="`+ (!enabled[7] ? 'disabled' : '') + `">Dodaj obraz</li>
             </ul>
         </div>
     `
@@ -139,6 +141,9 @@ function updateFile() {
         if ($element.hasClass('def')) {
             file.nodes[file.nodes.length - 1].definition = true;
         }
+        if ($element.hasClass('note')) {
+            file.nodes[file.nodes.length - 1].note = true;
+        }
         if ($element.hasClass('underline')) {
             file.nodes[file.nodes.length - 1].underline = true;
         }
@@ -183,6 +188,10 @@ function loadFile(fileText) {
 
             if (element.definition) {
                 $node.addClass('def');
+            }
+
+            if (element.note) {
+                $node.addClass('note');
             }
 
             if (element.underline) {
@@ -264,13 +273,6 @@ function moveCursorToEnd(el, pos = 0) {
     }
 }
 
-function generateToolbar() {
-    insertArray.forEach(el => {
-        var $newNode = $('<div class="btn action insert" id="'+el.id+'">'+el.symbol+'</div>');
-        $('.actionArea').append($newNode);
-    });
-}
-
 function init() {
     buffer = ["", "", "", ""];
     file = { nodes: [] }
@@ -284,6 +286,5 @@ function init() {
 // start
 (function () {
     updateFile();
-    generateToolbar();
     $('.input').focus();
 })();

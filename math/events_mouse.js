@@ -53,6 +53,10 @@ $(document).on('click', '#menu li', function () {
         case "Odznacz definicję": {
             $('#current').toggleClass('def');
         } break;
+        case "Zaznacz notatkę":
+        case "Odznacz notatkę": {
+            $('#current').toggleClass('note');
+        } break;
         case "Dodaj obraz": {
             $('#imgupload').trigger('click');
             $('.input').focus();

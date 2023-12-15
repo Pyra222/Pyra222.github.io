@@ -24,6 +24,11 @@ $(document).on('keydown', function (e) {
             $('#insertEquation').click();
             return false;
         }
+        if (e.key == 'f') {
+            e.preventDefault();
+            insertAtCursor($('.input')[0], '()/()');
+            return false;
+        }
     }
 });
 
@@ -56,15 +61,6 @@ $('.input').on('keydown', function (e) {
             return;
         }
         if ($('#current').length) {
-            if (e.keyCode == 9) {
-                e.preventDefault();
-                if (e.shiftKey) {
-                    oneUp();
-                } else {
-                    oneDown();
-                }
-                return false;
-            }
             if (e.key == 'ArrowUp') {
                 e.preventDefault();
                 oneUp();
@@ -96,6 +92,12 @@ $('.input').on('keydown', function (e) {
         }
         updateBufferElement();
         return false;
+    } else {
+        if (e.keyCode == 9) {
+            e.preventDefault();
+            insertAtCursor($('.input')[0],'    ');
+            return false;
+        }
     }
 });
 
@@ -104,8 +106,7 @@ $(".input").on('keyup', function (e) {
     if (text.startsWith('!!')) {
         $('#current').removeClass('eq');
         $('#current').addClass('image');
-    }
-    else if (text.startsWith('#')) {
+    } else if (text.startsWith('#')) {
         text = text.substr(1);
         $('#current').removeClass('eq');
         $('#current').addClass('text');

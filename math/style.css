@@ -172,6 +172,26 @@ hr {
     /* background: rgba(134, 207, 236, 0.1); */
 }
 
+.eq.note, .text.note, .image.note {
+    /* border-radius: 5px; */
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+    border: 1px solid rgb(177, 172, 114);
+    margin-bottom: 16px;
+    margin-top: 12px;
+    padding: 16px;
+    background: rgb(255, 249, 188);
+}
+
+.eq#current.note, .text#current.note {
+    /* border-radius: 5px; */
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+    border: 1px solid rgb(177, 172, 114);
+    margin-bottom: 16px;
+    margin-top: 12px;
+    padding: 16px;
+    background: rgb(255, 249, 188);
+}
+
 .hidden {
     display: none;
 }
