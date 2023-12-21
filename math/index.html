@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+
     <link href="https://fonts.googleapis.com/css?family=Markazi+Text&display=swap" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -60,7 +62,7 @@
         <div class="btn" id="markEntryClose">✕</div>
     </div>
     <div class="container">
-        <div class="bufferArea">
+        <div class="bufferArea noPrint">
             <div class="buffer saveIcon"></div>
             <div class="btn" id="copyFile">Kopiuj</div>
             <div class="btn" id="loadFile">Wczytaj</div>
@@ -69,13 +71,13 @@
             <div class="btn" id="help"><a href="http://asciimath.org" target="_blank">Pomoc</a></div>
         </div>
         <div class="eq_area">
-            <div class="actionArea">
+            <div class="actionArea noPrint">
                 <div class="btn action right" id="addRow">+</div>
             </div>
             <div class="entry eq" id="current">``</div>
         </div>
-        <textarea class="input"></textarea>
-        <input type="file" id="imgupload" style="display:none"/>
+        <textarea class="input noPrint"></textarea>
+        <input type="file" id="imgupload" style="display: none" class="noPrint"/>
     </div>
     <div id="overlay"></div>
     <script src="script.js"></script>

@@ -186,9 +186,10 @@ hr {
     top: -1px;
     right: -1px;
     font-size: 12px;
+    line-height: 18px;
     border: 1px solid rgb(145, 118, 118);
     /* width: 64px; */
-    padding: 0px 4px;
+    padding: 2px 4px;
     border-bottom-left-radius: 8px;
     background: white;
 } 

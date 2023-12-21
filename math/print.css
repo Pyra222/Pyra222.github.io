@@ -1,0 +1,20 @@
+@media print {
+    .noPrint {
+        display: none;
+    }
+    .eq_area {
+        box-shadow: none;
+        border: none;
+    }
+    .container {
+        box-shadow: none;
+        border: none;
+    }
+    #current {
+        box-shadow: none;
+        border: none;
+    }
+    * {
+        background: none;
+    }
+}
