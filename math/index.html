@@ -44,15 +44,27 @@
 </head>
 
 <body>
+    <div class="loaderContainer">
+        <div class="loader"></div>
+    </div>
     <div class="modal loadFile">
         <div class="label">Wczytaj notatkę</div>
         <textarea id="loadFileContents"></textarea>
         <div class="btn" id="load">Wczytaj</div>
+        <div class="btn" id="openFileList">Wczytaj z serwera</div>
         <div class="btn" id="loadFileClose">✕</div>
+    </div>
+    <div class="modal loadFileFromServer">
+        <div class="label">Wybierz plik</div>
+        <div id="fileContainer"></div>
+        <div class="btn" id="loadFromServer">Wczytaj</div>
+        <div class="btn" id="loadFileFromServerClose">✕</div>
     </div>
     <div class="modal copyFile">
         <div class="label">Zapisz notatkę</div>
         <textarea id="copyFileContents" readonly></textarea>
+        <input type="text" placeholder="nazwa pliku" id="fileName" />
+        <div class="btn" id="save">Zapisz na serwerze</div>
         <div class="btn" id="copyFileClose">✕</div>
     </div>
     <div class="modal markEntry">
@@ -80,6 +92,7 @@
         <input type="file" id="imgupload" style="display: none" class="noPrint"/>
     </div>
     <div id="overlay"></div>
+    <script src="api.js"></script>
     <script src="script.js"></script>
     <script src="events_mouse.js"></script>
     <script src="events_keyboard.js"></script>

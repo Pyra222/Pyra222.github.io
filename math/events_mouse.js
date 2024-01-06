@@ -99,6 +99,11 @@ $(document).on('click', '#loadFile', function (e) {
     $('#loadFileContents').focus();
 });
 
+$(document).on('click', '#loadFileFromServerClose', function (e) {
+    $(".loadFileFromServer").hide();
+    $("#overlay").hide();
+});
+
 $(document).on('click', '#loadFileClose', function (e) {
     $(".loadFile").hide();
     $("#overlay").hide();
@@ -125,6 +130,87 @@ $(document).on('click', '#load', function (e) {
         });
 });
 
+$(document).on('click', '.fileName', function(e) {
+    e.preventDefault();
+    let element = e.currentTarget;
+    console.log(e.target);
+    document.querySelectorAll(".fileName").forEach(f => {
+        f.classList.remove('selected');
+    })
+    element.classList.add('selected');
+});
+
+$(document).on('click', '#openFileList', function(e) {
+    $(".loadFileFromServer").show();
+    $(".loadFile").hide();
+    $("#overlay").show();
+    connection.getFilesList(true)
+    .then((response) => {
+        let fileContainer = $('#fileContainer');
+        fileContainer.empty();
+        response.forEach(e => {
+            $node = $('<div class="fileName" id="'+e.record+'">'+
+            '<div class="name">ID: '+ e.record +'</div>'+
+            '<div class="time"> @: '+ e.createdAt +'</div>'+
+            +'</div>');
+
+            fileContainer.append($node);
+        })
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+});
+
+$(document).on('click', '#loadFromServer', function(e) {
+    let fileId = document.querySelector('.selected').id;
+    console.log(fileId);
+    connection.getFile(fileId)
+    .then((response) => {
+        const responseParsed = JSON.parse(response).record;
+        loadFile(JSON.stringify(responseParsed))
+        .then(() => {
+            selectedFile = fileId;
+            $(".loadFileFromServer").hide();
+            $("#overlay").hide();
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+});
+
+$(document).on('click', '#save', function (e) {
+    const fileText = JSON.stringify(file)
+    .replace(/\</g,'&lt')
+    .replace(/\>/g,'&gt');
+    const fileName = $('#fileName').val();
+    if(fileName) {
+        connection.saveFile(fileName, fileText)
+        .then(() => {
+            $(".copyFile").hide();
+            $("#overlay").hide();
+        })
+        .catch(error => {
+            alert(error);
+        })
+    } else {
+        alert('Podaj nazwę pliku');
+    }
+    // var $file = $('#loadFileContents').val();
+    // loadFile($file)
+    //     .then(function () {
+    //         $(".loadFile").hide();
+    //         $("#overlay").hide();
+    //         $('.entry:last-of-type').prop('id', 'current');
+    //         $(".input").val($('#current').data('input'));
+    //         $('.input').focus();
+    //     })
+    //     .catch(function (e) {
+    //         alert('Parser JSON zwrócił następujący błąd:\n\n' + e.message);
+    //     });
+});
+
 $(document).on('click', '#markEntry', function (e) {
     var mark = $('#mark').val();
     currentEntry.append('<span class="mark">' + mark + '</span>');
@@ -134,6 +220,7 @@ $(document).on('click', '#markEntry', function (e) {
 });
 
 $(document).on('click', '#new', function () {
+    selectedFile = null;
     var result = confirm("Niezapisane zmiany zostaną utracone. Czy na pewno chcesz otworzyć nową notatkę?");
     if (result) {
         init();

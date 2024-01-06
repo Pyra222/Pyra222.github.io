@@ -4,6 +4,7 @@ var file = {
     nodes: []
 }
 var currentEntry = null;
+var selectedFile = null;
 
 function oneUp() {
     if ($('#current').prev().length >= 1 && !$('#current').prev().hasClass('actionArea')) {

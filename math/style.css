@@ -298,7 +298,7 @@ hr {
     margin-right: 0px;
 }
 
-.copyFile .btn, .loadFile .btn {
+.copyFile .btn, .loadFile .btn, .loadFileFromServer .btn {
     margin: 0px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -308,7 +308,7 @@ hr {
     margin-left: 4px;
 }
 
-#loadFileClose, #copyFileClose, #markEntryClose {
+#loadFileClose, #copyFileClose, #markEntryClose, #loadFileFromServerClose {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -324,7 +324,7 @@ hr {
     border-left: 1px solid black;
 }
 
-#loadFileClose:hover, #copyFileClose:hover, #markEntryClose:hover{
+#loadFileClose:hover, #copyFileClose:hover, #markEntryClose:hover, #loadFileFromServerClose:hover{
     background: rgb(201, 20, 20);
 }
 #copyFileContents, #loadFileContents {
@@ -335,6 +335,42 @@ hr {
     border: 1px solid gray;
     padding: 5px;
     margin: 5px;
+}
+#fileName {
+    width: calc(100% - 10px);
+    margin-left: 0px;
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+#fileContainer {
+    resize: none;
+    width: calc(100% - 10px);
+    margin-left: 0px;
+    border: 1px solid gray;
+    margin: 5px;
+    font-size: 14px;
+}
+#fileContainer .fileName {
+    width: calc(100% - 10px);
+    padding:  5px;
+}
+#fileContainer .fileName.selected {
+    box-shadow: 0px 0px 2px rgb(163, 154, 51) inset;
+    background: rgb(255, 249, 188);
+}
+#fileContainer .fileName:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+
+}
+#fileContainer .fileName .name {
+
+}
+#fileContainer .fileName .time {
+
 }
 
 .label {
@@ -451,4 +487,23 @@ hr {
 }
 .img {
     max-width: 600px;
+}
+
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1001;
+}
+
+.loaderContainer .loader {
+    background: red;
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%,-50%);
 }
