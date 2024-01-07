@@ -79,6 +79,14 @@ $(document).on('click', '.buffer', function () {
 $(document).on('click', '#copyFile', function (e) {
     $(".copyFile").show();
     $("#overlay").show();
+
+    if(selectedFile) {
+        $('#fileName').prop('disabled', true);
+        $('#fileName').val(selectedFileName);
+    } else {
+        $('#fileName').prop('disabled', false);
+    }
+
     updateFile();
     fileUpdated(true);
     var $contents = $('#copyFileContents');
@@ -144,6 +152,8 @@ $(document).on('click', '#openFileList', function(e) {
     $(".loadFileFromServer").show();
     $(".loadFile").hide();
     $("#overlay").show();
+
+    showLoader();
     connection.getFilesList(true)
     .then((response) => {
         let fileContainer = $('#fileContainer');
@@ -160,23 +170,31 @@ $(document).on('click', '#openFileList', function(e) {
     .catch((error) => {
         console.log(error);
     })
+    .finally(() => {
+        hideLoader();
+    })
 });
 
 $(document).on('click', '#loadFromServer', function(e) {
     let fileId = document.querySelector('.selected').id;
-    console.log(fileId);
+
+    showLoader();
     connection.getFile(fileId)
     .then((response) => {
-        const responseParsed = JSON.parse(response).record;
-        loadFile(JSON.stringify(responseParsed))
+        const responseParsed = JSON.parse(response);
+        loadFile(JSON.stringify(responseParsed.record))
         .then(() => {
             selectedFile = fileId;
+            selectedFileName = responseParsed.metadata.name;
             $(".loadFileFromServer").hide();
             $("#overlay").hide();
         });
     })
     .catch((error) => {
         console.log(error);
+    })
+    .finally(() => {
+        hideLoader();
     })
 });
 
@@ -185,7 +203,9 @@ $(document).on('click', '#save', function (e) {
     .replace(/\</g,'&lt')
     .replace(/\>/g,'&gt');
     const fileName = $('#fileName').val();
+    
     if(fileName) {
+        showLoader();
         connection.saveFile(fileName, fileText)
         .then(() => {
             $(".copyFile").hide();
@@ -193,6 +213,9 @@ $(document).on('click', '#save', function (e) {
         })
         .catch(error => {
             alert(error);
+        })
+        .finally(() => {
+            hideLoader();
         })
     } else {
         alert('Podaj nazwę pliku');
@@ -221,6 +244,7 @@ $(document).on('click', '#markEntry', function (e) {
 
 $(document).on('click', '#new', function () {
     selectedFile = null;
+    selectedFileName = null;
     var result = confirm("Niezapisane zmiany zostaną utracone. Czy na pewno chcesz otworzyć nową notatkę?");
     if (result) {
         init();

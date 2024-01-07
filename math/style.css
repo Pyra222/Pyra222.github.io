@@ -347,6 +347,7 @@ hr {
 
 #fileContainer {
     resize: none;
+    min-height: 150px;
     width: calc(100% - 10px);
     margin-left: 0px;
     border: 1px solid gray;
@@ -489,21 +490,36 @@ hr {
     max-width: 600px;
 }
 
-.loaderContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#loaderContainer {
+    display: none;
+
+    user-select: none;
+    pointer-events: none;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    position: fixed;
+    position: absolute;
     top: 0; left: 0;
     z-index: 1001;
 }
 
-.loaderContainer .loader {
-    background: red;
-    width: 60px;
+@keyframes rotate {
+    from { transform: rotate(0deg);}
+    to   { transform: rotate(359deg);}
+}
+
+#loaderContainer .loader {
+    background: transparent;
+    width: 30px;
     height: 60px;
     transform: translate(-50%,-50%);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 5px 0px 1px rgb(255, 249, 188) inset;
+    transform-origin: center right;
+    animation: rotate 1s linear infinite;
+
+    position: absolute;
+    left: calc(50% - 30px);
+    top: calc(50% - 30px);
 }

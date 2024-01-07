@@ -5,6 +5,7 @@ var file = {
 }
 var currentEntry = null;
 var selectedFile = null;
+var selectedFileName = null;
 
 function oneUp() {
     if ($('#current').prev().length >= 1 && !$('#current').prev().hasClass('actionArea')) {
@@ -272,6 +273,14 @@ function moveCursorToEnd(el, pos = 0) {
         range.collapse(false);
         range.select();
     }
+}
+
+function showLoader() {
+    $('#loaderContainer').show();
+}
+
+function hideLoader() {
+    $('#loaderContainer').hide();
 }
 
 function init() {
