@@ -141,7 +141,6 @@ $(document).on('click', '#load', function (e) {
 $(document).on('click', '.fileName', function(e) {
     e.preventDefault();
     let element = e.currentTarget;
-    console.log(e.target);
     document.querySelectorAll(".fileName").forEach(f => {
         f.classList.remove('selected');
     })

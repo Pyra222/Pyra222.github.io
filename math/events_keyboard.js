@@ -1,6 +1,5 @@
 $(document).on('keydown', function (e) {
     if (e.altKey && e.ctrlKey && e.key == 'w') {
-        // console.log('aaaaa');
         e.preventDefault();
         e.stopPropagation();
         $('.input').toggleClass('invisible');
@@ -49,7 +48,6 @@ $('.input').on('keydown', function (e) {
                 } else {
                     text = next.data('input');
                 }
-                console.log(text);
                 $(".input").val(text);
                 currentEntry.remove();
                 currentEntry = next;
