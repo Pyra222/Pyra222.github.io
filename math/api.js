@@ -13,7 +13,7 @@ const connection = {
 
             req.onreadystatechange = () => {
                 if (req.readyState == XMLHttpRequest.DONE) {
-                    fileIds = JSON.parse(req.responseText).map(e => {return {record: e.record, createdAt: e.createdAt}});
+                    fileIds = JSON.parse(req.responseText);
                     resolve(fileIds);
                 } else if(req.readyState >= 400 && req.readyState <= 403) {
                     reject(req.responseText.message)
@@ -82,7 +82,9 @@ const connection = {
                 }
             };
 
-            // DELETE FILE HERE
+            req.open("DELETE", `https://api.jsonbin.io/v3/b/${fileId}`, true);
+            req.setRequestHeader("X-Master-Key", config.master_key);
+            req.send();
         })
     }
 }

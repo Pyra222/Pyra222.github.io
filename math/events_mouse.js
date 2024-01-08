@@ -159,8 +159,8 @@ $(document).on('click', '#openFileList', function(e) {
         fileContainer.empty();
         response.forEach(e => {
             $node = $('<div class="fileName" id="'+e.record+'">'+
-            '<div class="name">ID: '+ e.record +'</div>'+
-            '<div class="time"> @: '+ e.createdAt +'</div>'+
+            '<div class="name">'+ e.snippetMeta.name +'</div>'+
+            '<div class="time"> @: '+ e.createdAt +'<span class="deleteFile" style="float: right">🗑</span></div>'+
             +'</div>');
 
             fileContainer.append($node);
@@ -172,6 +172,35 @@ $(document).on('click', '#openFileList', function(e) {
     .finally(() => {
         hideLoader();
     })
+});
+$(document).on('click', '.deleteFile', function(e) {
+    let fileId = e.target.parentElement.parentElement.id; //GOOD
+    if (confirm('Czy napewno chcesz usunąć ten plik?')) {
+        showLoader();
+        connection.deleteFile(fileId)
+        .then(() => {
+            alert('Plik został usunięty');
+            connection.getFilesList(true)
+            .then((response) => {
+                let fileContainer = $('#fileContainer');
+                fileContainer.empty();
+                response.forEach(e => {
+                    $node = $('<div class="fileName" id="'+e.record+'">'+
+                    '<div class="name">'+ e.snippetMeta.name +'</div>'+
+                    '<div class="time"> @: '+ e.createdAt +'<span class="deleteFile" style="float: right">🗑</span></div>'+
+                    +'</div>');
+
+                    fileContainer.append($node);
+                })
+            })
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            hideLoader();
+        })
+    }
 });
 
 $(document).on('click', '#loadFromServer', function(e) {
@@ -209,6 +238,7 @@ $(document).on('click', '#save', function (e) {
         .then(() => {
             $(".copyFile").hide();
             $("#overlay").hide();
+            fileUpdated(true);
         })
         .catch(error => {
             alert(error);

@@ -347,16 +347,26 @@ hr {
 
 #fileContainer {
     resize: none;
-    min-height: 150px;
+    height: 150px;
     width: calc(100% - 10px);
     margin-left: 0px;
     border: 1px solid gray;
     margin: 5px;
     font-size: 14px;
+    overflow-y: scroll;
 }
 #fileContainer .fileName {
     width: calc(100% - 10px);
     padding:  5px;
+    padding-bottom: 20px;
+}
+#fileContainer .fileName .deleteFile {
+    padding-right: 5px;
+    font-weight: bold;
+}
+#fileContainer .fileName .deleteFile:hover {
+    color: rgb(190, 19, 19);
+    font-weight: bold;
 }
 #fileContainer .fileName.selected {
     box-shadow: 0px 0px 2px rgb(163, 154, 51) inset;
@@ -368,7 +378,7 @@ hr {
 
 }
 #fileContainer .fileName .name {
-
+    font-weight: bold;
 }
 #fileContainer .fileName .time {
 
@@ -498,7 +508,7 @@ hr {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    position: absolute;
+    position: fixed;
     top: 0; left: 0;
     z-index: 1001;
 }
