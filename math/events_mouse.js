@@ -160,11 +160,15 @@ $(document).on('click', '#openFileList', function(e) {
         response.forEach(e => {
             $node = $('<div class="fileName" id="'+e.record+'">'+
             '<div class="name">'+ e.snippetMeta.name +'</div>'+
-            '<div class="time"> @: '+ e.createdAt +'<span class="deleteFile" style="float: right">🗑</span></div>'+
+            '<div class="fileIcon">𝜆</div>'+
+            '<div class="time" style="align-self: flex-start"> '+ e.createdAt.split('T')[0] +
+            '<br />'+ e.createdAt.split('T')[1].split(':')[0] +
+            ':'+ e.createdAt.split('T')[1].split(':')[1] +
+            '<span class="deleteFile" style="float: right">🗑</span></div>'+
             +'</div>');
 
             fileContainer.append($node);
-        })
+        }) // 2024-01-08T11:57:30.316Z
     })
     .catch((error) => {
         console.log(error);
@@ -187,6 +191,7 @@ $(document).on('click', '.deleteFile', function(e) {
                 response.forEach(e => {
                     $node = $('<div class="fileName" id="'+e.record+'">'+
                     '<div class="name">'+ e.snippetMeta.name +'</div>'+
+                    '<div class="fileIcon">𝜆</div>'+
                     '<div class="time"> @: '+ e.createdAt +'<span class="deleteFile" style="float: right">🗑</span></div>'+
                     +'</div>');
 

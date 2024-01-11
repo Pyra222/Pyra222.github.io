@@ -28,7 +28,7 @@ body{
     padding: 0px 15px;
     margin: auto;
     margin-bottom: 400px;
-    margin-top: 40px;
+    margin-top: 60px;
     max-width: 800px;
     background: white;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
@@ -48,13 +48,17 @@ hr {
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 100%;
+    width: 1000px;
+    max-width: 1000px;
+    margin-left: calc(50% - 500px);
+    margin-bottom: 24px;
+    background: rgba(255,255,255,0.9);
     height: 150px;
     line-height: 20px;
     font-size: 14px;
     border: none;
     box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.2);
-    padding: 0px 5px;
+    padding: 8px;
     outline: none;
     resize: none;
     z-index: 10;
@@ -82,6 +86,24 @@ hr {
 
 .entry:last-of-type {
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.eqListArea {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 200px;
+    height: calc(100% - 46px);
+    padding: 8px;
+    background: white;    
+}
+
+.eqListAreaCollapse {
+
+}
+
+.eqListEntry {
+    
 }
 
 #menu {
@@ -227,7 +249,7 @@ hr {
     top: 0px;
     left: 0px;
     width: 100%;
-    background: rgb(210, 221, 199);
+    background: rgb(191, 171, 156);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
     z-index: 10;
     display: flex;
@@ -345,21 +367,45 @@ hr {
     margin-bottom: 10px;
 }
 
+.loadFileFromServer {
+    width: 600px;
+    height: 400px;
+}
+
 #fileContainer {
     resize: none;
-    height: 150px;
-    width: calc(100% - 10px);
+    height: calc(100% - 84px);
+    width: calc(100% - 20px);
     margin-left: 0px;
     border: 1px solid gray;
     margin: 5px;
     font-size: 14px;
     overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
 }
 #fileContainer .fileName {
-    width: calc(100% - 10px);
-    padding:  5px;
-    padding-bottom: 20px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-left: 4px solid rgb(147, 91, 91);
+    width: calc(33% - 24px);
+    height: 200px;
+    padding:  8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgb(255, 251, 229);
 }
+
+#fileContainer .fileName .fileIcon {
+    font-size: 42px;
+    text-shadow: 0px 3px 3px rgba(0,0,0,0.3);
+}
+
 #fileContainer .fileName .deleteFile {
     padding-right: 5px;
     font-weight: bold;
@@ -369,19 +415,23 @@ hr {
     font-weight: bold;
 }
 #fileContainer .fileName.selected {
-    box-shadow: 0px 0px 2px rgb(163, 154, 51) inset;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2), 0px 0px 2px rgb(255, 237, 41) inset;
     background: rgb(255, 249, 188);
 }
 #fileContainer .fileName:hover {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2), 0px 0px 2px rgb(163, 154, 51) inset;
+    background: rgb(255, 249, 188);
 
 }
 #fileContainer .fileName .name {
     font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
 }
 #fileContainer .fileName .time {
-
+    width: 100%;
 }
 
 .label {
@@ -391,12 +441,12 @@ hr {
     height: 20px;
     line-height: 20px;
     user-select: none;
-    background: rgb(210, 221, 199);
+    background: rgb(191, 171, 156);
     border-bottom: 1px solid black;
 }
 
 .bufferArea .btn {
-    min-width: 70px;
+    width: 70px;
     text-align: center;
     margin: 0px;
     height: 100%;
