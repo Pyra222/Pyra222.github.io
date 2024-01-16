@@ -292,10 +292,6 @@ $(document).on('click', '#insertEquation', function () {
     moveCursorToEnd($('.input')[0], 2);
 });
 
-$(document).on('click', '#addRow', function () {
-    addRow();
-});
-
 $(document).on('click', '.insert', function (e) {
     $('.input').focus();
     insertAtCursor($('.input')[0], insertArray.find(el => el.id == e.target.id).insert);
@@ -334,4 +330,9 @@ $(document).on('change','#imgupload', function (e) {
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
+})
+
+$(document).on('click','.stickyNoteArea', function (e) {
+    e.preventDefault();
+    $(e.currentTarget).toggleClass('collapsed');
 })

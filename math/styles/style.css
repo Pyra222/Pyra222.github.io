@@ -14,7 +14,8 @@
 
 body{
     /* background: rgba(0,0,0,0.1); */
-    background: url(paper.png);
+    background: url('../assets/img/paper.png');
+    overflow-x: hidden;
 }
 
 .disabled {
@@ -32,7 +33,7 @@ body{
     max-width: 800px;
     background: white;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-    background: url(groovepaper.png);
+    background: url('../assets/img/groovepaper.png');
 }
 
 hr {
@@ -88,22 +89,33 @@ hr {
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
 }
 
-.eqListArea {
-    position: absolute;
-    top: 30px;
-    right: 0px;
-    width: 200px;
-    height: calc(100% - 46px);
+.stickyNoteArea {
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    /* width: auto; */
+    /* height: 300px; */
     padding: 8px;
-    background: white;    
+    background: white;
+    transition: right 0.5 ease-in-out; 
 }
-
-.eqListAreaCollapse {
-
+.stickyNoteArea.collapsed {
+    position: fixed;
+    top: 40px;
+    right: -315px;
+    /* width: 20px; */
+    /* height: 300px; */
+    padding: 0px;
+    background: white;
+    transition: right 0.5 ease-in-out;
 }
-
-.eqListEntry {
-    
+.stickyNoteArea .eq{
+    transition: opacity 0.5 ease-in-out;
+    opacity: 1;
+}
+.stickyNoteArea.collapsed .eq{
+    transition: opacity 0.5 ease-in-out;
+    opacity: 0;
 }
 
 #menu {
@@ -409,6 +421,7 @@ hr {
 #fileContainer .fileName .deleteFile {
     padding-right: 5px;
     font-weight: bold;
+    font-size: 16px;
 }
 #fileContainer .fileName .deleteFile:hover {
     color: rgb(190, 19, 19);
@@ -429,9 +442,13 @@ hr {
     width: 100%;
     text-align: center;
     padding-top: 10px;
+    font-style: italic;
 }
 #fileContainer .fileName .time {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
+    font-size: 12px;
 }
 
 .label {

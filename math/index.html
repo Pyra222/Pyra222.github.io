@@ -5,8 +5,8 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/print.css" media="print" />
 
     <link href="https://fonts.googleapis.com/css?family=Markazi+Text&display=swap" rel="stylesheet">
 
@@ -84,24 +84,23 @@
         </div>
         <div class="eq_area">
             <div class="actionArea noPrint">
-                <div class="btn action right" id="addRow">+</div>
             </div>
             <div class="entry eq" id="current">``</div>
         </div>
         <textarea class="input noPrint"></textarea>
         <input type="file" id="imgupload" style="display: none" class="noPrint"/>
         <!-- TODO -->
-        <!-- <div class="eqListArea">
-            <div class="eqListEntry">Entry 1</div>
-            <div class="eqListEntry">Entry 2</div>
-            <div class="eqListEntry">Entry 3</div>
-        </div> -->
+        <div class="stickyNoteArea collapsed">
+            <div class="eq" style="justify-content: flex-start;">`F_(munu)=del_muA_nu-del_nuA_mu`</div>
+            <div class="eq" style="justify-content: flex-start;">`F^(munu)=((0,-E_x,-E_y,-E_z),(+E_x,0,-B_z,+B_y),(+E_y,+B_z,0,-B_x),(+E_z,-B_y,+B_x,0))`</div><br />
+            <div class="eq" style="justify-content: flex-start;">`T^(munu)=((1/2(E^2+B^2),S_x,S_y,S_z),(S_x,-sigma_(x\x),-sigma_(xy),-sigma_(xz)),(S_y,-sigma_(yx),-sigma_(yy),-sigma_(yz)),(S_z,-sigma_(zx),-sigma_(zy),-sigma_(zz)))`</div>
+        </div>
     </div>
     <div id="overlay"></div>
-    <script src="api.js"></script>
-    <script src="script.js"></script>
-    <script src="events_mouse.js"></script>
-    <script src="events_keyboard.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/events_mouse.js"></script>
+    <script src="scripts/events_keyboard.js"></script>
 </body>
 
 </html>
