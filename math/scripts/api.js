@@ -48,6 +48,8 @@ const connection = {
 
             req.onreadystatechange = () => {
                 if (req.readyState == XMLHttpRequest.DONE) {
+                    selectedFile = JSON.parse(req.responseText).metadata.id;
+                    selectedFileName = fileName;
                     resolve(req.responseText);
                 } else if(req.readyState >= 400 && req.readyState <= 403) {
                     reject(req.responseText.message)
@@ -56,12 +58,14 @@ const connection = {
             
             // SAVE EXISTING OR CREATE FILE HERE
             if(!selectedFile) {
+                console.log('POST');
                 req.open("POST", "https://api.jsonbin.io/v3/b", true);
                 req.setRequestHeader("Content-Type", "application/json");
                 req.setRequestHeader("X-Master-Key", config.master_key);
                 req.setRequestHeader("X-Collection-Id", config.collection_id);
                 req.setRequestHeader("X-Bin-Name", fileName);
             } else {
+                console.log('PUT');
                 req.open("PUT", `https://api.jsonbin.io/v3/b/${selectedFile}`, true);
                 req.setRequestHeader("Content-Type", "application/json");
                 req.setRequestHeader("X-Master-Key", config.master_key);

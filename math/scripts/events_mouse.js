@@ -239,6 +239,7 @@ $(document).on('click', '#save', function (e) {
     
     if(fileName) {
         showLoader();
+        
         connection.saveFile(fileName, fileText)
         .then(() => {
             $(".copyFile").hide();
