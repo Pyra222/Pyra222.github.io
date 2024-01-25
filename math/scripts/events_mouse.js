@@ -153,22 +153,22 @@ $(document).on('click', '#openFileList', function(e) {
     $("#overlay").show();
 
     showLoader();
-    connection.getFilesList(true)
+    directus_connection.getFilesList(true)
     .then((response) => {
         let fileContainer = $('#fileContainer');
         fileContainer.empty();
         response.forEach(e => {
-            $node = $('<div class="fileName" id="'+e.record+'">'+
-            '<div class="name">'+ e.snippetMeta.name +'</div>'+
+            $node = $('<div class="fileName" id="'+e.id+'">'+
+            '<div class="name">'+ e.name +'</div>'+
             '<div class="fileIcon">𝜆</div>'+
-            '<div class="time" style="align-self: flex-start"> '+ e.createdAt.split('T')[0] +
-            '<br />'+ e.createdAt.split('T')[1].split(':')[0] +
-            ':'+ e.createdAt.split('T')[1].split(':')[1] +
+            '<div class="time" style="align-self: flex-start"> '+ e.created.split('T')[0] +
+            '<br />'+ e.created.split('T')[1].split(':')[0] +
+            ':'+ e.created.split('T')[1].split(':')[1] +
             '<span class="deleteFile" style="float: right">🗑</span></div>'+
             +'</div>');
 
             fileContainer.append($node);
-        }) // 2024-01-08T11:57:30.316Z
+        })
     })
     .catch((error) => {
         console.log(error);
@@ -181,20 +181,23 @@ $(document).on('click', '.deleteFile', function(e) {
     let fileId = e.target.parentElement.parentElement.id; //GOOD
     if (confirm('Czy napewno chcesz usunąć ten plik?')) {
         showLoader();
-        connection.deleteFile(fileId)
+        directus_connection.deleteFile(fileId)
         .then(() => {
             alert('Plik został usunięty');
-            connection.getFilesList(true)
+            directus_connection.getFilesList(true)
             .then((response) => {
                 let fileContainer = $('#fileContainer');
                 fileContainer.empty();
                 response.forEach(e => {
-                    $node = $('<div class="fileName" id="'+e.record+'">'+
-                    '<div class="name">'+ e.snippetMeta.name +'</div>'+
+                    $node = $('<div class="fileName" id="'+e.id+'">'+
+                    '<div class="name">'+ e.name +'</div>'+
                     '<div class="fileIcon">𝜆</div>'+
-                    '<div class="time"> @: '+ e.createdAt +'<span class="deleteFile" style="float: right">🗑</span></div>'+
+                    '<div class="time" style="align-self: flex-start"> '+ e.created.split('T')[0] +
+                    '<br />'+ e.created.split('T')[1].split(':')[0] +
+                    ':'+ e.created.split('T')[1].split(':')[1] +
+                    '<span class="deleteFile" style="float: right">🗑</span></div>'+
                     +'</div>');
-
+        
                     fileContainer.append($node);
                 })
             })
@@ -212,13 +215,12 @@ $(document).on('click', '#loadFromServer', function(e) {
     let fileId = document.querySelector('.selected').id;
 
     showLoader();
-    connection.getFile(fileId)
+    directus_connection.getFile(fileId)
     .then((response) => {
-        const responseParsed = JSON.parse(response);
-        loadFile(JSON.stringify(responseParsed.record))
+        loadFile(JSON.stringify(response.content))
         .then(() => {
             selectedFile = fileId;
-            selectedFileName = responseParsed.metadata.name;
+            selectedFileName = response.name;
             $(".loadFileFromServer").hide();
             $("#overlay").hide();
         });
@@ -240,7 +242,7 @@ $(document).on('click', '#save', function (e) {
     if(fileName) {
         showLoader();
         
-        connection.saveFile(fileName, fileText)
+        directus_connection.saveFile(fileName, fileText)
         .then(() => {
             $(".copyFile").hide();
             $("#overlay").hide();
@@ -255,18 +257,6 @@ $(document).on('click', '#save', function (e) {
     } else {
         alert('Podaj nazwę pliku');
     }
-    // var $file = $('#loadFileContents').val();
-    // loadFile($file)
-    //     .then(function () {
-    //         $(".loadFile").hide();
-    //         $("#overlay").hide();
-    //         $('.entry:last-of-type').prop('id', 'current');
-    //         $(".input").val($('#current').data('input'));
-    //         $('.input').focus();
-    //     })
-    //     .catch(function (e) {
-    //         alert('Parser JSON zwrócił następujący błąd:\n\n' + e.message);
-    //     });
 });
 
 $(document).on('click', '#markEntry', function (e) {
