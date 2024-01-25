@@ -1,7 +1,7 @@
 const config = {
     master_key: '$2a$10$DF8BMJ2BbiP.8ofi29d3RewcuiSIbXsPhB73DF325OSN.UR8r3aaO',
     collection_id: '659929101f5677401f184651',
-    directus_root: 'http://16.171.148.215:8055' 
+    directus_root: 'https://16.171.148.215:8055'
 }
 
 let fileIds = [];
