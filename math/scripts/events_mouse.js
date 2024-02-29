@@ -280,7 +280,6 @@ $(document).on('click', '#new', function () {
 
 $(document).on('click', '#insertEquation', function () {
     insertAtCursor($('.input')[0], '\\$$\\');
-    moveCursorToEnd($('.input')[0], 2);
 });
 
 $(document).on('click', '.insert', function (e) {
