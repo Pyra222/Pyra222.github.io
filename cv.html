@@ -13,12 +13,26 @@
                 justify-content: center;
                 align-items: center;
             }
+            .download {
+                text-decoration: none;
+                border: 1px solid rgba(0,0,0,0.3);
+                padding: 4px 8px;
+                background: #003466;
+                color: white;
+                border-radius: 4px;
+                font-family: "Lato", sans-serif;
+                font-weight: 700;
+                min-width: 80px;
+                text-align: center;
+                cursor: pointer;
+            }
             .page {
                 font-family: "Lato", sans-serif;
                 background: white;
                 width: 19cm;
                 height: 27.7cm;
                 padding: 1cm;
+                padding-top: 0.5cm;
             }
             .page .header {
                 width: 100%;
@@ -39,6 +53,9 @@
                 height: calc(100% - 4.3cm);
                 display: flex;
             }
+            .side {
+                max-width: 200px;
+            }
             .page .main {
                 flex-grow: 1;
                 padding-left: 1cm;
@@ -54,20 +71,13 @@
                 border-bottom: 2px solid #003466;
                 padding-bottom: 8px;
                 padding-left: 12px;
-                padding-right: 12px;
                 margin-bottom: 8px;
-                width: 50%;
-                transition: width 0.3s ease-in-out;
-            }
-            .page .main .section .title:hover {
-                width: 100%;
-                transition: width 0.3s ease-in-out;
             }
             .page .main .section .text {
                 font-size: 12px;
             }
             .text-wrapper {
-                margin-bottom: 20px;
+                margin-bottom: 16px;
             }
             .text-wrapper .date {
                 font-weight: 400;
@@ -83,14 +93,7 @@
                 font-style: normal;
                 padding-left: 2cm;
                 margin-top: 4px;
-            }
-            @keyframes rotate {
-                from {
-                    transform: rotateY(0deg);
-                }
-                to {
-                    transform: rotateY(359deg);
-                }
+                margin-bottom: 16px;
             }
             .page .side .photo {
                 background: url(./sad.png);
@@ -100,7 +103,6 @@
                 height: 190px;
                 box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
                 margin-bottom: 0.5cm;
-                animation: rotate 4s linear infinite;
             }
             .bold {
                 font-weight: 900;
@@ -123,7 +125,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                margin-top: 4px;
+                margin-top: 8px;
             }
             .side_section .gauge {
                 padding-top: 3px;
@@ -141,7 +143,7 @@
         <div class="page">
             <div class="header box">
                 <div class="name">Gabriela Skórewicz</div>
-                <div class="position">Rzeźnik/Ornitolog</div>
+                <div class="position">Fizjoterapeuta</div>
             </div>
             <div class="body box">
                 <div class="side box">
@@ -157,10 +159,10 @@
                             26-110 Skarżysko-Kamienna
                         </div>
                         <div class="text">
-                            📞 997
+                            📞 788-411-003
                         </div>
                         <div class="text">
-                            twoj.email@gmail.com
+                            gabriela.skorewicz@gmail.com
                         </div>
                     </div>
 
@@ -168,13 +170,14 @@
                         <div class="title">
                             Umiejętności
                         </div>
-                        <div class="skill">
-                            <div class="gauge">⚫⚫⚫⚪⚪</div>
-                            <div class="name">Masowanko</div>
+                        <div class="text">
+                            Wiedza teoretyczna oraz praktyczna z dziedziny kinezoterapii, fizykoterapii oraz balneoterapii
                         </div>
-                        <div class="skill">
-                            <div class="gauge">⚫⚫⚪⚪⚪</div>
-                            <div class="name">Naświetlanko</div>
+                        <div class="text">
+                            Masaż klasyczny i relaksacyjny
+                        </div>
+                        <div class="text">
+                            Obsługa szyn mechanicznych
                         </div>
                     </div>
 
@@ -185,12 +188,6 @@
                         <div class="text">
                             Angielski - C1
                         </div>
-                        <div class="text">
-                            Wiński- C2
-                        </div>
-                        <div class="text">
-                            Browarski - C2
-                        </div>
                     </div>
 
                     <div class="side_section">
@@ -198,36 +195,48 @@
                             Hobby
                         </div>
                         <div class="text">
-                            Szyszki
+                            Pieczenie
+                        </div>
+                        <div class="text">
+                            Zwierzęta
+                        </div>
+                        <div class="text">
+                            Gry logiczne
                         </div>
                     </div>
                 </div>
                 <div class="main box">
                     <div class="section">
                         <div class="title">Podsumowanie</div>
-                        <div class="text">Szukam pracy</div>
+                        <div class="text">
+                            Jestem początkującą fizjoterapeutką z doświaczeniem w pracy na wielu oddziałach szpitalnych. Jestem zainteresowana pracą z osobami starszymi oraz pacjentami bólowymi.
+                        </div>
                     </div>
                     <div class="section">
                         <div class="title">Doświadczenie zawodowe</div>
                         <div class="text">
                             <div class="text-wrapper">
-                                <div class="date">11.09.1997 - wczoraj</div>
+                                <div class="date">17.08.2023 - 17.02.2024</div>
                                 <div class="position">
-                                    <span class="bold">Centrum Wszechświata</span>
-                                    <span> w Kosmos sp. Z O.O.</span>
+                                    <span>staż na stanowisku <span class="bold">Pozostały pomocniczy personel medyczny</span>
+                                    <span>w Zespole opieki zdrowotnej w Skarżysku-Kamiennej, Szpital Powiatowy 
+                                        im. Marii Skłodowskiej-Curie ul. Szpitalna 1</span>
                                 </div>
                                 <div class="description">
-                                    Obdarzam codziennie świat błogosławieństwem mojej osoby
+                                    Zdobywanie wiedzy i doświadczenia dotyczącego wykonywania czynności związanych z rehabilitacją pacjentów oddziału rehabilitacji dziennej i stacjonarnej.
                                 </div>
                             </div>
                             <div class="text-wrapper">
-                                <div class="date">wczoraj - dzisiaj</div>
+                                <div class="date">17.02.2024 – obecnie</div>
                                 <div class="position">
-                                    <span class="bold">metr w lewo od Centrum Wszechświata</span>
-                                    <span> w Kosmos sp. Z O.O.</span>
+                                    <span class="bold">
+                                        Fizjoterapeuta
+                                    </span>
+                                    <span>w Zespole opieki zdrowotnej w Skarżysku-Kamiennej, Szpital Powiatowy 
+                                        im. Marii Skłodowskiej-Curie ul. Szpitalna 1</span>
                                 </div>
                                 <div class="description">
-                                    Potkłam się
+                                    Wykonywanie czynności związanych z rehabilitacją pacjentów oddziału rehabilitacji dziennej i stacjonarnej.
                                 </div>
                             </div>
                         </div>
@@ -237,29 +246,46 @@
                         <div class="title">Edukacja</div>
                         <div class="text">
                             <div class="text-wrapper">
-                                <div class="date">Lorem - impsum</div>
+                                <div class="date">10.2018 – 06.2023</div>
                                 <div class="position">
-                                    <span class="bold">Baba co wie</span>
-                                    <span>w Akademia Chłopskiego Rozumu</span>
+                                    <span class="bold">Magister fizjoterapii</span>
+                                    <span>na Uniwersytecie Jana Kochanowskiego w Kielcach</span>
                                 </div>
                                 <div class="description">
-                                    Ja już dużo widziałam to wiem.
+                                    Praca magisterska pt. <span class="bold">Badanie wskazań do rehabilitacji oddechowej wśród osób po przebytym Covid-19</span> pod kierownictwem dra hab. prof. UJK Janusza Sielskiego
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="section">
                         <div class="title">Kursy i szkolenia</div>
                         <div class="text">
                             <div class="text-wrapper">
-                                <div class="date">Lorem - impsum</div>
+                                <div class="date">16.10.2021 - 21.11.2021</div>
                                 <div class="position">
-                                    <span class="bold">To trzeba usiąść na spokojnie</span>
-                                    <span>przez Szwagier</span>
+                                    <span class="bold">Fizjoterapia w Geriatrii</span>
+                                    <span>- Mediprofit, dr n. med. Marek Wiecheć</span>
                                 </div>
                                 <div class="description">
-                                    Tak na szybko to się nie da, ale jakoś zategujemy.
+                                    Całościowa ocena geriatryczna w fizjoterapii, zaburzenia postawy ciała i kontroli motorycznych u pacjentów starszych, zaburzenia procesów poznawczych u osób starszych, fizjoterapia osób starszych w warunkach ambulatoryjnych, domowych, instytucjonalnych (szpital, ZOL).
+                                </div>
+                                <div class="text-wrapper">
+                                    <div class="date">27-28.11.2021</div>
+                                    <div class="position">
+                                        <span class="bold">Basic Course Kinesiology Taping</span>
+                                        <span>- Senior Instructor Professor MD. PTD Zbigniew Śliwiński</span>
+                                    </div>
+                                    <div class="description">
+                                        Przeprowadzony w standardzie K-Active Association.
+                                    </div>
+                                </div>
+                                <div class="text-wrapper">
+                                    <div class="date">21.02.2022</div>
+                                    <div class="position">
+                                        <span class="bold">Masaż stemplami ziołowymi</span>
+                                        <span> oraz </span>
+                                        <span class="bold">Masaż gorącymi kamieniami wulkanicznymi</span><span> - Placówka kształcenia ustawicznego, konsorcjum naukowo-edukacyjne w Kielcach</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -267,12 +293,18 @@
 
                     <div class="statement">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych
-                        przez (nazwa firmy) w celu prowadzenia rekrutacji na
+                        przez Zespół opieki zdrowotnej w Skarżysku-Kamiennej, Szpital Powiatowy 
+                        im. Marii Skłodowskiej-Curie ul. Szpitalna 1 w celu prowadzenia rekrutacji na
                         aplikowane przeze mnie stanowisko.
                     </div>
                 </div>
             </div>
             
         </div>
+        <a
+            class="download"
+            href="./cv.pdf"
+            download="cv.pdf"
+            style="align-self: flex-end">Ściung</a>
     </body>
 </html>
